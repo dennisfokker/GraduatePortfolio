@@ -1,0 +1,17 @@
+.banner {
+    overflow: hidden;
+
+    height: 30%;
+    padding: 0 !important;
+}
+
+.banner h1 {
+    margin-top: 1.5em !important;
+
+    font-size: 4em !important;
+}
+
+.ui.menu {
+    position: sticky !important;
+    top: 0;
+}
