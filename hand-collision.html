@@ -63,7 +63,7 @@
             </div>
         </div>
 
-        <div class="ui container basic segment">
+        <div class="ui container basic segment content">
             <div class="ui vertical center aligned segment">
                 <h1 class="ui title header">HAND COLLISION</h1>
                 <img class="ui fluid image" src="assets/images/product-test.gif">
@@ -75,14 +75,60 @@
             </div>
 
             <div class="ui vertical stripe segment">
-                <div class="ui vertical center aligned segment">
-                    <h2 class="ui title header">CONCEPT</h2>
+                <div class="ui basic center aligned segment">
+                    <h1 class="ui title header">CONCEPT</h1>
                 </div>
-                test
+                <div class="ui grid">
+                    <div class="nine wide column">
+                        <p>Every system comes with their own requirements and user story. While the user story is something predetermined by the project lead, the requirements are something that comes as the team discusses the best method to tackle the problem.</p>
+                        <p>During concepting it's important to keep in mind what the player or developer might (not) be expecting; their hand shouldn't explode nor should their screen go black whenever hitting a wall.</p>
+                    </div>
+                    <div class="seven wide column">
+                        <h4 class="ui title header">REQUIREMENTS</h4>
+                        <div class="ui bulleted list">
+                            <div class="item">Needs to be clear to the player what is happening;</div>
+                            <div class="item">Player should not be able to interact with items on opposite side of immovable object;</div>
+                            <div class="item">Players still need to be able to interact with items (when not blocked by immovable objects).</div>
+                        </div>
+                        <a class="ui big blue label" href="https://www.dropbox.com/s/a3o974c32me0a2n/Hand%20anti-cheating%20collision%20system.docx?dl=0" target="_blank">
+                            <i class="dropbox icon"></i>Design document
+                        </a>
+                    </div>
+                </div>
             </div>
+
             <div class="ui vertical stripe segment">
-                test
+                <div class="ui basic center aligned segment">
+                    <h1 class="ui title header">DEVELOPMENT</h1>
+                </div>
+                <div class="ui grid">
+                    <div class="nine wide column">
+                        <p>Every system comes with their own requirements and user story. While the user story is something predetermined by the project lead, the requirements are something that comes as the team discusses the best method to tackle the problem.</p>
+                        <p>During concepting it's important to keep in mind what the player or developer might (not) be expecting; their hand shouldn't explode nor should their screen go black whenever hitting a wall.</p>
+                    </div>
+                    <div class="seven wide column">
+                        <h4 class="ui title header">FLOWCHART</h4>
+                        <img id="flowchart" class="ui fluid image" src="assets/images/hand-collision/flowchart.png">
+                    </div>
+                </div>
             </div>
         </div>
+
+
+
+        <div id="flowchart-modal" class="ui basic modal">
+            <i class="close icon"></i>
+            <div class="header">Flowchart</div>
+            <div class="content">
+                <img class="ui fluid image" src="assets/images/hand-collision/flowchart.png">
+            </div>
+        </div>
+
+        <script type="text/javascript">
+            $('#flowchart').click(function ()
+            {
+                $('#flowchart-modal').modal('show');
+            });
+        </script>
     </body>
 </html>

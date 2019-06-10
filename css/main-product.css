@@ -1,14 +1,29 @@
 h1.ui.title.header {
-    font-size: 3.5em !important;
+    font-size: 4em !important;
+    font-weight: normal;
 }
 
 h2.ui.title.header {
-    font-size: 3em !important;
+    font-size: 3.5em !important;
+    font-weight: normal;
+}
+
+h3.ui.title.header {
+    font-size: 2em !important;
+    font-weight: normal;
+}
+
+h4.ui.title.header {
+    font-size: 1.5em !important;
+    font-weight: normal;
 }
 
 .intro {
     margin-top: 0.5em;
 
     text-align: left;
-    font-size: 1.1rem;
+}
+
+.content > * {
+    font-size: 1.1rem !important;
 }
