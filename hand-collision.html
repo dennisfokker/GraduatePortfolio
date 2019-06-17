@@ -107,6 +107,46 @@
                 <div class="ui grid">
                     <div class="nine wide column">
                         <p>Once the design has been accepted, development on the system can start. All the work on this system is performed by myself, unless the flowchart specifies otherwise.</p>
+                        <p>This products mainly consists out of 3 sub-products: How to handle <b>Collision</b>, <b>Configurability</b> and <b>Clarity</b>.</p>
+
+                        <div class="ui fluid card">
+                            <div class="content">
+                                <div class="header">Collision</div>
+                                <div class="description">
+                                    How to check if a hand is valid or not, without ruining performance in the process?
+                                </div>
+                            </div>
+                            <div id="collision" class="ui bottom attached blue button">
+                                <i class="comment alternate outline icon"></i>
+                                Read more
+                            </div>
+                        </div>
+
+                        <div class="ui fluid card">
+                            <div class="content">
+                                <div class="header">Configurability</div>
+                                <div class="description">
+                                    What needs to be configurable and how will this work with existing components?
+                                </div>
+                            </div>
+                            <div id="configurability" class="ui bottom attached blue button">
+                                <i class="comment alternate outline icon"></i>
+                                Read more
+                            </div>
+                        </div>
+
+                        <div class="ui fluid card">
+                            <div class="content">
+                                <div class="header">Clarity</div>
+                                <div class="description">
+                                    How to make sure immersion stays and the player knows what is happening?
+                                </div>
+                            </div>
+                            <div id="clarity" class="ui bottom attached blue button">
+                                <i class="comment alternate outline icon"></i>
+                                Read more
+                            </div>
+                        </div>
                     </div>
 
                     <div class="seven wide column">
@@ -132,10 +172,35 @@
             </div>
         </div>
 
+
+
+        <div id="collision-modal" class="ui modal">
+            <i class="close icon"></i>
+            <div class="header">Collision</div>
+            <div class="content">
+                <img class="ui fluid image" src="assets/images/hand-collision/flowchart.png">
+            </div>
+        </div>
+
         <script type="text/javascript">
             $('#flowchart').click(function ()
             {
                 $('#flowchart-modal').modal('show');
+            });
+
+            $('#collision').click(function ()
+            {
+                $('#collision-modal').modal('show');
+            });
+
+            $('#configurability').click(function ()
+            {
+                $('#configurability-modal').modal('show');
+            });
+
+            $('#clarity').click(function ()
+            {
+                $('#clarity-modal').modal('show');
             });
         </script>
     </body>

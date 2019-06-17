@@ -27,3 +27,16 @@ h4.ui.title.header {
 .content > * {
     font-size: 1.1rem !important;
 }
+
+:not(.basic).ui.modal > .close {
+        top: 1.5rem;
+        right: 1.25rem;
+        z-index: 10;
+        opacity: .6;
+        color: #000;
+        padding: 0;
+}
+
+:not(.basic).ui.modal > .close:hover {
+    opacity: 1;
+}
