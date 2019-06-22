@@ -151,7 +151,17 @@
 
                     <div class="seven wide column">
                         <h4 class="ui title header">FLOWCHART</h4>
-                        <img id="flowchart" class="ui fluid image" src="assets/images/hand-collision/flowchart.png">
+                        <div id="flowchart">
+                            <img class="ui fluid image zoomable" src="assets/images/hand-collision/flowchart.png">
+                            <div class="ui dimmer">
+                                <div class="content">
+                                    <h1 class="ui inverted icon header">
+                                        <i class="search plus icon"></i>
+                                        Zoom in
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -240,6 +250,8 @@
             $('#flowchart').click(function ()
             {
                 $('#flowchart-modal').modal('show');
+            }).dimmer({
+                on: 'hover'
             });
 
             $('#collision').click(function ()
