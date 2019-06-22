@@ -189,6 +189,53 @@
             </div>
         </div>
 
+
+
+        <div id="configurability-modal" class="ui modal">
+            <i class="close icon"></i>
+            <div class="header">Configurability</div>
+            <div class="content">
+                <p>The system contains 3 settings: whether it’s active, hand size and visibility threshold.</p>
+
+                <h4 class="ui header">Whether it’s active</h4>
+                <div class="ui grid">
+                    <div class="nine wide column">
+                        <p>This is simple enough. Should the system actually be running, or do we currently not care if your character’s hand is inside the wall?</p>
+                        <p>This can be used when the project has no need for this system, or when certain actions wouldn’t work nicely and need the system temporarily disabled.</p>
+                        <p>An example of a system that doesn’t work along nicely is the climbing system, due to the order in which your body is moved and the system performs its check.</p>
+                    </div>
+                    <div class="seven wide column">
+                        <img class="ui fluid image" src="https://via.placeholder.com/1920x1080">
+                    </div>
+                </div>
+
+                <h4 class="ui header">Hand size</h4>
+                <p>Depending on the visualisation your hand size can differ, either on project basis or based on the current state of your character. The traces use this size.</p>
+                <p>This setting is visualised with a sphere simple collision shape without any collision enabled. This visualisation is only visible in the viewport (engine-time) and make it easier to see scale, compared to a float (radius in cm).</p>
+
+                <h4 class="ui header">Whether it’s active</h4>
+                <div class="ui grid">
+                    <div class="nine wide column">
+                        <p>When the hand collides with something and stops moving, the “ghost hand” doesn’t instantly become visible. Instead a distance threshold can be chosen when the ghost should pop up.</p>
+                        <p>This prevents clipping, when the ghost hand and character hand are at nearly the same place.</p>
+                    </div>
+                    <div class="seven wide column">
+                        <img class="ui fluid image" src="https://via.placeholder.com/1920x1080">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div id="clarity-modal" class="ui modal">
+            <i class="close icon"></i>
+            <div class="header">Clarity</div>
+            <div class="content">
+                In construction...
+            </div>
+        </div>
+
         <script type="text/javascript">
             $('#flowchart').click(function ()
             {
