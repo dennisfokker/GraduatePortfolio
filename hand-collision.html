@@ -66,7 +66,7 @@
         <div class="ui container basic segment content">
             <div class="ui vertical center aligned segment">
                 <h1 class="ui title header">HAND COLLISION</h1>
-                <img class="ui fluid image" src="assets/images/product-test.gif">
+                <img class="ui fluid image" src="https://via.placeholder.com/1920x1080">
 
                 <div class="intro">
                     A system used to make the visual representation of your hand physical, whilst minimizing the chance of breaking the immersion of the game.<br>
@@ -178,7 +178,14 @@
             <i class="close icon"></i>
             <div class="header">Collision</div>
             <div class="content">
-                <img class="ui fluid image" src="assets/images/hand-collision/flowchart.png">
+                <p>Something already mentioned earlier is that the system uses tracing, instead of using “normal” collision. Specifically “sphere traces by channel” are used: a sphere simple shape is used to continuously test from point A to B, colliding only which objects that block the specified channel. This provides more freedom than using ordinary physics collision, without sacrificing efficiency.</p>
+                <p>The system checks for two criteria, in order. If at least one of these succeed, your character’s hand will move to the position of the respective motion controller.</p>
+                <ol>
+                    <li>Check if there’s anything between your latest character’s hand position and the position of the motion controller.</li>
+                    <li>Check if there’s anything between your camera’s position and the position of the motion controller.</li>
+                </ol>
+                <p>The reason behind this order is because the distance of check 1 is <u data-tooltip="Shorter given the player stands still. Actions like teleporting will cause longer traces, but these don't happen often.">generally*</u> much shorter than that of 2, resulting in cheaper traces.</p>
+                <img class="ui fluid image" src="https://via.placeholder.com/1920x1080">
             </div>
         </div>
 
