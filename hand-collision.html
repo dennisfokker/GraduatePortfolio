@@ -66,7 +66,10 @@
         <div class="ui container basic segment content">
             <div class="ui vertical center aligned segment">
                 <h1 class="ui title header">HAND COLLISION</h1>
-                <img class="ui fluid image" src="https://via.placeholder.com/1920x1080">
+                <video class="ui fluid image" autoplay loop>
+                    <source src="https://drive.google.com/uc?export=download&id=1Zi86nFRQV40HuGznsucMrZWoKYXnnnt0" type="video/mp4">
+                    Your browser does not support the mp4 video tag.
+                </video>
 
                 <div class="intro">
                     A system used to make the visual representation of your hand physical, whilst minimizing the chance of breaking the immersion of the game.<br>
@@ -195,7 +198,16 @@
                     <li>Check if there’s anything between your camera’s position and the position of the motion controller.</li>
                 </ol>
                 <p>The reason behind this order is because the distance of check 1 is <u data-tooltip="Shorter given the player stands still. Actions like teleporting will cause longer traces, but these don't happen often.">generally*</u> much shorter than that of 2, resulting in cheaper traces.</p>
-                <img class="ui fluid image" src="https://via.placeholder.com/1920x1080">
+                <div class="ui unpadded segment">
+                    <video class="ui fluid image" autoplay loop>
+                        <source src="https://drive.google.com/uc?export=download&id=1s6AcZBeH90SUkoZg8v71AqHUbw-kTDrq" type="video/mp4">
+                        Your browser does not support the mp4 video tag.
+                    </video>
+                    <div class="ui bottom attached label">
+                        Visualisation of traces through debug lines/spheres (trace visible for 0.1 second, causing the "snake").</br>
+                        Magena/Cyan = character to controller ----- Red/green = camera controller
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -208,14 +220,47 @@
                 <p>The system contains 3 settings: whether it’s active, hand size and visibility threshold.</p>
 
                 <h4 class="ui header">Whether it’s active</h4>
+                <p>This is simple enough. Should the system actually be running, or do we currently not care if your character’s hand is inside the wall?</p>
+                <p>This can be used when the project has no need for this system, or when certain actions wouldn’t work nicely and need the system temporarily disabled.</p>
+                <p>An example of a system that doesn’t work along nicely is the climbing system, due to the order in which your body is moved and the system performs its check.</p>
                 <div class="ui grid">
-                    <div class="nine wide column">
-                        <p>This is simple enough. Should the system actually be running, or do we currently not care if your character’s hand is inside the wall?</p>
-                        <p>This can be used when the project has no need for this system, or when certain actions wouldn’t work nicely and need the system temporarily disabled.</p>
-                        <p>An example of a system that doesn’t work along nicely is the climbing system, due to the order in which your body is moved and the system performs its check.</p>
+                    <div class="eight wide column">
+                        <div class="ui unpadded segment">
+                            <div id="climb-bad">
+                                <video class="ui fluid image zoomable" autoplay loop>
+                                    <source src="https://drive.google.com/uc?export=download&id=16Mpp6jCF2uAeGPBuqhub0QDyn4HI9Ch4" type="video/mp4">
+                                    Your browser does not support the mp4 video tag.
+                                </video>
+                                <div class="ui dimmer">
+                                    <div class="content">
+                                        <h1 class="ui inverted icon header">
+                                            <i class="search plus icon"></i>
+                                            Zoom in
+                                        </h1>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ui bottom attached label">Hand gets stuck in wall since collision system isn’t integrated properly.</div>
+                        </div>
                     </div>
-                    <div class="seven wide column">
-                        <img class="ui fluid image" src="https://via.placeholder.com/1920x1080">
+                    <div class="eight wide column">
+                        <div class="ui unpadded segment">
+                            <div id="climb-good">
+                                <video class="ui fluid image" autoplay loop>
+                                    <source src="https://drive.google.com/uc?export=download&id=1KKfRVCZWbh-s2bcrTNtjwik8twEh5En2" type="video/mp4">
+                                    Your browser does not support the mp4 video tag.
+                                </video>
+                                <div class="ui dimmer">
+                                    <div class="content">
+                                        <h1 class="ui inverted icon header">
+                                            <i class="search plus icon"></i>
+                                            Zoom in
+                                        </h1>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ui bottom attached label">Collision system is triggered, but doesn’t influence the climbing experience.</div>
+                        </div>
                     </div>
                 </div>
 
@@ -230,7 +275,23 @@
                         <p>This prevents clipping, when the ghost hand and character hand are at nearly the same place.</p>
                     </div>
                     <div class="seven wide column">
-                        <img class="ui fluid image" src="https://via.placeholder.com/1920x1080">
+                        <div class="ui unpadded segment">
+                            <div id="threshold">
+                                <video class="ui fluid image" autoplay loop>
+                                    <source src="https://drive.google.com/uc?export=download&id=1KfDcS9ewDg3CVzEfLaII-GU-BWe39dRs" type="video/mp4">
+                                    Your browser does not support the mp4 video tag.
+                                </video>
+                                <div class="ui dimmer">
+                                    <div class="content">
+                                        <h1 class="ui inverted icon header">
+                                            <i class="search plus icon"></i>
+                                            Zoom in
+                                        </h1>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ui bottom attached label">Different thresholds when ghost hand becomes visible.</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -250,11 +311,93 @@
                         <p>This mesh is editable on a per-project basis (and if you really want to can also be changed during run-time (like any mesh component). Using a character’s hand mesh should help keeping immersion whilst using a controller mesh should provide more clarity that the thing that’s moving is not “part of the game”, but instead some form of indication, like the room-scale boundaries that pop up as you reach the edges of your setup.</p>
                     </div>
                     <div class="seven wide column">
-                        <img class="ui fluid image" src="https://via.placeholder.com/1920x1080">
+                        <div class="ui unpadded segment">
+                            <div id="ghost-hand">
+                                <video class="ui fluid image" autoplay loop>
+                                    <source src="https://drive.google.com/uc?export=download&id=1Zi86nFRQV40HuGznsucMrZWoKYXnnnt0" type="video/mp4">
+                                    Your browser does not support the mp4 video tag.
+                                </video>
+                                <div class="ui dimmer">
+                                    <div class="content">
+                                        <h1 class="ui inverted icon header">
+                                            <i class="search plus icon"></i>
+                                            Zoom in
+                                        </h1>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="ui bottom attached label">What the ghost hand looks like and what the result is of several interactions. Yellow objects are items.</div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
+
+
+        <div id="climb-bad-modal" class="ui basic modal">
+            <i class="close icon"></i>
+            <div class="header"></div>
+            <div class="content">
+                <div class="ui basic unpadded segment">
+                    <video class="ui fluid image" autoplay loop>
+                        <source src="https://drive.google.com/uc?export=download&id=16Mpp6jCF2uAeGPBuqhub0QDyn4HI9Ch4" type="video/mp4">
+                        Your browser does not support the mp4 video tag.
+                    </video>
+                    <div class="ui bottom attached label">Hand gets stuck in wall since collision system isn’t integrated properly.</div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div id="climb-good-modal" class="ui basic modal">
+            <i class="close icon"></i>
+            <div class="header"></div>
+            <div class="content">
+                <div class="ui basic unpadded segment">
+                    <video class="ui fluid image" autoplay loop>
+                        <source src="https://drive.google.com/uc?export=download&id=1KKfRVCZWbh-s2bcrTNtjwik8twEh5En2" type="video/mp4">
+                        Your browser does not support the mp4 video tag.
+                    </video>
+                    <div class="ui bottom attached label">Collision system is triggered, but doesn’t influence the climbing experience.</div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div id="threshold-modal" class="ui basic modal">
+            <i class="close icon"></i>
+            <div class="header"></div>
+            <div class="content">
+                <div class="ui basic unpadded segment">
+                    <video class="ui fluid image" autoplay loop>
+                        <source src="https://drive.google.com/uc?export=download&id=1KfDcS9ewDg3CVzEfLaII-GU-BWe39dRs" type="video/mp4">
+                        Your browser does not support the mp4 video tag.
+                    </video>
+                    <div class="ui bottom attached label">Different thresholds when ghost hand becomes visible.</div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div id="ghost-hand-modal" class="ui basic modal">
+            <i class="close icon"></i>
+            <div class="header"></div>
+            <div class="content">
+                <div class="ui basic unpadded segment">
+                    <video class="ui fluid image" autoplay loop>
+                        <source src="https://drive.google.com/uc?export=download&id=1Zi86nFRQV40HuGznsucMrZWoKYXnnnt0" type="video/mp4">
+                        Your browser does not support the mp4 video tag.
+                    </video>
+                    <div class="ui bottom attached label">What the ghost hand looks like and what the result is of several interactions. Yellow objects are items.</div>
+                </div>
+            </div>
+        </div>
+
+
 
         <script type="text/javascript">
             $('#flowchart').click(function ()
@@ -277,6 +420,34 @@
             $('#clarity').click(function ()
             {
                 $('#clarity-modal').modal('show');
+            });
+
+            $('#climb-bad').click(function ()
+            {
+                $('#climb-bad-modal').modal('show');
+            }).dimmer({
+                on: 'hover'
+            });
+
+            $('#climb-good').click(function ()
+            {
+                $('#climb-good-modal').modal('show');
+            }).dimmer({
+                on: 'hover'
+            });
+
+            $('#threshold').click(function ()
+            {
+                $('#threshold-modal').modal('show');
+            }).dimmer({
+                on: 'hover'
+            });
+
+            $('#ghost-hand').click(function ()
+            {
+                $('#ghost-hand-modal').modal('show');
+            }).dimmer({
+                on: 'hover'
             });
         </script>
     </body>

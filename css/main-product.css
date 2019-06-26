@@ -40,3 +40,12 @@ h4.ui.title.header {
 :not(.basic).ui.modal > .close:hover {
     opacity: 1;
 }
+
+.ui.unpadded.segment {
+    padding: 0;
+}
+
+.ui.attached.label {
+    z-index: 5;
+    position: relative;
+}
