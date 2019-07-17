@@ -42,6 +42,8 @@
 
                         <div class="active item">Hand collision</div>
 
+                        <a class="item" href="arduino-communication.html">Arduino communication</a>
+
                         <div class="item">
                             Product 2 <i class="dropdown icon"></i>
                             <div class="menu">
@@ -50,8 +52,6 @@
                                 <a class="item">Sub Product 2.2</a>
                             </div>
                         </div>
-
-                        <a class="item">Product 3</a>
 
                     </div>
                 </div>
@@ -197,7 +197,7 @@
                     <li>Check if there’s anything between your latest character’s hand position and the position of the motion controller.</li>
                     <li>Check if there’s anything between your camera’s position and the position of the motion controller.</li>
                 </ol>
-                <p>The reason behind this order is because the distance of check 1 is <u data-tooltip="Shorter given the player stands still. Actions like teleporting will cause longer traces, but these don't happen often.">generally*</u> much shorter than that of 2, resulting in cheaper traces.</p>
+                <p>The reason behind this order is because the distance of check 1 is <u data-tooltip="Shorter given the player stands still. Actions like teleporting will cause longer traces, but these don't happen often." data-inverted="">generally*</u> much shorter than that of 2, resulting in cheaper traces.</p>
                 <div class="ui unpadded segment">
                     <video class="ui fluid image" autoplay loop muted>
                         <source src="https://drive.google.com/uc?export=download&id=1s6AcZBeH90SUkoZg8v71AqHUbw-kTDrq" type="video/mp4">
@@ -215,7 +215,7 @@
 
         <div id="configurability-modal" class="ui modal">
             <i class="close icon"></i>
-            <div class="header">Configurability</div>
+            <div class="header">Sidenotes</div>
             <div class="content">
                 <p>The system contains 3 settings: whether it’s active, hand size and visibility threshold.</p>
 

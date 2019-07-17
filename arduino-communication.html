@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <!-- Standard Meta -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+        <!-- Site Properties -->
+        <title>DFokker Portfolio - Arduino Communication</title>
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+
+        <link rel="stylesheet" type="text/css" href="css/home.css">
+        <link rel="stylesheet" type="text/css" href="css/main-product.css">
+
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+    </head>
+
+    <body>
+        <a href="index.html">
+            <div class="banner ui inverted vertical center aligned segment">
+                <div class="ui text container">
+                    <h1 class="ui inverted header">Graduate Portfolio</h1>
+                </div>
+            </div>
+        </a>
+
+
+        <div class="ui inverted three item important attached menu">
+            <div class="ui centered aligned container">
+
+                <a class="item" href="index.html">
+                    Home
+                </a>
+
+                <div class="ui simple dropdown active item">
+                    Products <i class="dropdown icon"></i>
+                    <div class="menu">
+
+                        <a class="item" href="hand-collision.html">Hand collision</a>
+                        
+                        <div class="active item" href="arduino-communication.html">Arduino communication</div>
+
+                        <div class="item">
+                            Product 2 <i class="dropdown icon"></i>
+                            <div class="menu">
+                                <a class="item">Sub Product 2.1</a>
+
+                                <a class="item">Sub Product 2.2</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <a class="item">
+                    About internship
+                </a>
+
+            </div>
+        </div>
+
+        <div class="ui container basic segment content">
+            <div class="ui vertical center aligned segment">
+                <h1 class="ui title header">ARDUINO COMMUNICATION</h1>
+                <div class='embed-container'>
+                    <iframe src='https://www.youtube.com/embed/G3bEBgGWmeg?controls=0&autoplay=1&loop=1&mute=1&playlist=G3bEBgGWmeg' frameborder='0'></iframe>
+                </div>
+                
+                <div class="intro">
+                        <p>Certain games from a collection (the <a href="http://prototehas.ee/en/home/" target="_blank">PROTO Invention Factory</a>) use input from physical machines. These machines have their hardware input run through an Arduino and ends up in the game.</p>
+                        <p>This communication can also go backwards, where the game communicates information with the Arduino.</p>
+                </div>
+            </div>
+
+            <div class="ui vertical stripe segment">
+                <div class="ui basic center aligned segment">
+                    <h1 class="ui title header">CONCEPT</h1>
+                </div>
+
+                <div class="ui divided grid">
+                    <div class="eight wide column">
+                        <h4 class="ui title header">Provided by PROTO</h4>
+                        <p>An outside source (company) provides hardware (e.g. a bike), which includes an Arduino and code to process the hardware’s input (e.g. a tilt sensor).</p>
+                        <p>The Arduino will format any input to a -1 to 1 scale (like how a joystick would function) based on its calibration settings. All hardware input is gathered into a single message and sent over a COM port to the connected computer. It has been agreed that all messages are sent over in a JSON format.</p>
+                    </div>
+
+                    <div class="eight wide column">
+                        <h4 class="ui title header">Actions for Enversed</h4>
+                        <p>When we received the testing hardware, the first thing we had to do is validate it: update calibration data and assure the input is formatted into the correct message. If this is not the case this has to be updated by us (Arduino C++ code).</p>
+                        <p>Once the hardware is set up, we can dive into the game. First we have to connect to the COM port the Arduino uses, from that point we can deserialize the JSON and inform the rest of the game.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ui vertical stripe segment">
+                <div class="ui basic center aligned segment">
+                    <h1 class="ui title header">DEVELOPMENT</h1>
+                </div>
+
+                <div class="ui grid">
+                    <div class="nine wide column">
+                        <p>Once the set up has been finished at Enversed’s side, the implementation can start. There are two phases to this: <b>Connecting</b> and the <b>Sidenotes</b> resulting from the connection implementation.</p>
+
+                        <div class="ui fluid card">
+                            <div class="content">
+                                <div class="header">Connecting</div>
+                                <div class="description">
+                                    Connect and read from the Arduino COM port, serving it to the game in a useful format.
+                                </div>
+                            </div>
+                            <div id="connecting" class="ui bottom attached blue button">
+                                <i class="comment alternate outline icon"></i>
+                                Read more
+                            </div>
+                        </div>
+
+                        <div class="ui fluid card">
+                            <div class="content">
+                                <div class="header">Sidenotes</div>
+                                <div class="description">
+                                        Several things to keep in mind when using this system. There also is a suggestion on how to resolve crashes, as that will be the result of incorrect implementation.
+                                </div>
+                            </div>
+                            <div id="sidenotes" class="ui bottom attached blue button">
+                                <i class="comment alternate outline icon"></i>
+                                Read more
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="seven wide column">
+                        <h4 class="ui title header">FLOWCHART</h4>
+                        <div id="flowchart">
+                            <img class="ui fluid image zoomable" src="assets/images/arduino-communication/flowchart.png">
+                            <div class="ui dimmer">
+                                <div class="content">
+                                    <h1 class="ui inverted icon header">
+                                        <i class="search plus icon"></i>
+                                        Zoom in
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <h4 class="ui title header">HARDWARE</h4>
+                        <div id="hardware">
+                            <img class="ui fluid image zoomable" src="assets/images/arduino-communication/hardware.jpg">
+                            <div class="ui dimmer">
+                                <div class="content">
+                                    <h1 class="ui inverted icon header">
+                                        <i class="search plus icon"></i>
+                                        Zoom in
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="ui inverted vertical footer segment">
+            <img class="ui left floated medium image" src="assets/images/enversed-banner.png">
+        </div>
+
+
+
+        <div id="flowchart-modal" class="ui basic modal">
+            <i class="close icon"></i>
+            <div class="header">Flowchart</div>
+            <div class="content">
+                <img class="ui fluid image" src="assets/images/arduino-communication/flowchart.png">
+            </div>
+        </div>
+
+
+
+        <div id="hardware-modal" class="ui basic modal">
+            <i class="close icon"></i>
+            <div class="header">Hardware</div>
+            <div class="content">
+                <img class="ui fluid image" src="assets/images/arduino-communication/hardware.jpg">
+            </div>
+        </div>
+
+
+
+        <div id="connecting-modal" class="ui modal">
+            <i class="close icon"></i>
+            <div class="header">Connecting</div>
+            <div class="content">
+                    <p>The base of communication is done through the free open source UE4 plugin <a href="https://github.com/RVillani/UE4Duino" target="_blank">UE4Duino</a>. With this, we added a custom C++ component that simplifies the communication.</p>
+                    <p>The component only requires a single setup function and separate functions to start/stop reading the COM port (takes care of actions like flushing the buffer). Aside from that you can bind to an event which will return received messages, already neatly formatted into a dictionary.</p>
+                    <p>The most complex system here is the event dispatcher. The component needs to make sure the message has properly started and ended, so that there will be no issues during deserialization.</p>
+                    <p>An important part of reading the COM port is that it’s happening on a separate thread: there’s more than one message sent per tick. This means that data comes in constantly and would easily lock up the game thread. Running the reading code on a new thread would fix this, as it can peacefully process all messages whenever received. Luckily all that has to be done with this data is put it in their respective variables, so it can be processed by the rest of the game. Since UE4 makes sure that all variables are thread-safe there’s no risk of memory access violations when used <u data-tooltip="See the sidenotes about what exactly is meant by “properly”." data-inverted="">properly*</u>.</p>
+            </div>
+        </div>
+
+
+
+        <div id="sidenotes-modal" class="ui modal">
+            <i class="close icon"></i>
+            <div class="header">Sidenotes</div>
+            <div class="content">
+                <p><i>It’s important to first read about how the connection is established and processed, otherwise these sidenotes will make no sense.</i></p>
+                <p>As mentioned, message reading in done on an extra thread. When the messages are processed properly there won’t be any issues. A good rule for this is to only change <b>data</b> and not <b>physical attributes</b>. Data essentially just means a normal variable. Physical attributes refer to information that’s relevant to the game world, like an actor’s location or dynamically generating a material.</p>
+                <p>Failing to follow this rule will almost certainly crash your game, as these operations are not supported in a multi-threaded context.</p>
+                <p>When a crash does happen, it might not be quite as straightforward to find out what exactly you’re doing wrong. If an initial scan doesn’t show the culprit, process of elimination is likely your best bet.</p>
+                <p>Once you have an easily reproducible setup made, start disconnecting code until it starts working again. If you already have an idea where it might be, start by disconnecting that. No idea? Just disconnect the entire message handling code. Still crashed? Then it’s either something in the plugin or some other system that’s failing.</p>
+                <p>Using this function it’s all a matter of slowly closing in on the faulty code, at which point the relevant code can be moved away from the threaded event and to a point which actually runs on the game thread (like tick).</p>
+            </div>
+        </div>
+
+
+
+        <script type="text/javascript">
+            $('#flowchart').click(function ()
+            {
+                $('#flowchart-modal').modal('show');
+            }).dimmer({
+                on: 'hover'
+            });
+
+            $('#hardware').click(function ()
+            {
+                $('#hardware-modal').modal('show');
+            }).dimmer({
+                on: 'hover'
+            });
+
+            $('#connecting').click(function ()
+            {
+                $('#connecting-modal').modal('show');
+            });
+
+            $('#sidenotes').click(function ()
+            {
+                $('#sidenotes-modal').modal('show');
+            });
+        </script>
+    </body>
+</html>
