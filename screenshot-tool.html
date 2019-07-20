@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <!-- Standard Meta -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+        <!-- Site Properties -->
+        <title>DFokker Portfolio - Screenshot Tool</title>
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+
+        <link rel="stylesheet" type="text/css" href="css/home.css">
+        <link rel="stylesheet" type="text/css" href="css/main-product.css">
+
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+    </head>
+
+    <body>
+        <a href="index.html">
+            <div class="banner ui inverted vertical center aligned segment">
+                <div class="ui text container">
+                    <h1 class="ui inverted header">Graduate Portfolio</h1>
+                </div>
+            </div>
+        </a>
+
+
+        <div class="ui inverted three item important attached menu">
+            <div class="ui centered aligned container">
+
+                <a class="item" href="index.html">
+                    Home
+                </a>
+
+                <div class="ui simple dropdown active item">
+                    Products <i class="dropdown icon"></i>
+                    <div class="menu">
+
+                        <a class="item" href="hand-collision.html">Hand collision</a>
+
+                        <a class="item" href="arduino-communication.html">Arduino communication</a>
+
+                        <div class="active item">Screenshot tool</div>
+
+                        <div class="item">
+                            Product 2 <i class="dropdown icon"></i>
+                            <div class="menu">
+                                <a class="item">Sub Product 2.1</a>
+
+                                <a class="item">Sub Product 2.2</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <a class="item">
+                    About internship
+                </a>
+
+            </div>
+        </div>
+
+        <div class="ui container basic segment content">
+            <div class="ui vertical center aligned segment">
+                <h1 class="ui title header">SCREENSHOT TOOL</h1>
+                <img class="ui fluid image" src="https://via.placeholder.com/1920x1080"/>
+
+                <div class="intro">
+                    There are scenarios where a user needs to capture the current visual state of the application. The screenshot tool is supposed to provide this service with certain ease-of-use features.
+                </div>
+            </div>
+
+            <div class="ui vertical stripe segment">
+                <div class="ui basic center aligned segment">
+                    <h1 class="ui title header">CONCEPT</h1>
+                </div>
+
+                <div class="ui grid">
+                    <div class="nine wide column">
+                        <p>A base for the tool was already there: call a function and based on the settings a screenshot is saved to the disk. This system works by calling a certain Unreal Engine 4 command and providing it with the required information (settings). This command takes a screenshot and automatically saves it to a predetermined location on the disk.</p>
+                        <p>While it did allow for hiding specific widgets (not supported in high resolution) and actors, it was still very basic and limiting. Thus extensions were requested (see right-side requirements).</p>
+                    </div>
+
+                    <div class="seven wide column">
+                        <h4 class="ui title header">REQUIREMENTS</h4>
+                        <div class="ui bulleted list">
+                            <div class="item">
+                                Ability to display a live preview of the screenshot;
+                                <div class="list">
+                                    <div class="item">
+                                        Assure it also works with ignored actors (widgets not supported).
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">Ability to specify any camera source;</div>
+                            <div class="item">Keep it performant; don’t cause redundant rendering.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ui vertical stripe segment">
+                <div class="ui basic center aligned segment">
+                    <h1 class="ui title header">DEVELOPMENT</h1>
+                </div>
+
+                <div class="ui grid">
+                    <div class="nine wide column">
+                        <p>Each requirement forms its own little subtask (aside from the performance requirement). The order of the requirements as listed above is also the order in which it was worked on, resulting in the following subjects to talk about: <b>Previews</b>, <b>Sources</b> and <b>Performance</b>.</p>
+
+                        <div class="ui fluid card">
+                            <div class="content">
+                                <div class="header">Previews</div>
+                                <div class="description">
+                                    Display a live preview of the screenshot you’re about to make, to assure the end-result is as expected or make preparations for an event-based screenshot at a location.
+                                </div>
+                            </div>
+                            <div id="previews" class="ui bottom attached blue button">
+                                <i class="comment alternate outline icon"></i>
+                                Read more
+                            </div>
+                        </div>
+
+                        <div class="ui fluid card">
+                            <div class="content">
+                                <div class="header">Sources</div>
+                                <div class="description">
+                                    Take a screenshot from anywhere and anything. Don’t be limited to your own viewport.
+                                </div>
+                            </div>
+                            <div id="sources" class="ui bottom attached blue button">
+                                <i class="comment alternate outline icon"></i>
+                                Read more
+                            </div>
+                        </div>
+
+                        <div class="ui fluid card">
+                            <div class="content">
+                                <div class="header">Performance</div>
+                                <div class="description">
+                                    Previews and screenshots cost drawing calls. Make sure they’re minimized without sacrificing functionality.
+                                </div>
+                            </div>
+                            <div id="performance" class="ui bottom attached blue button">
+                                <i class="comment alternate outline icon"></i>
+                                Read more
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="seven wide column">
+                        <h4 class="ui title header">FLOWCHART</h4>
+                        <div id="flowchart">
+                            <img class="ui fluid image zoomable" src="assets/images/screenshot-tool/flowchart.png">
+                            <div class="ui dimmer">
+                                <div class="content">
+                                    <h1 class="ui inverted icon header">
+                                        <i class="search plus icon"></i>
+                                        Zoom in
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="ui inverted vertical footer segment">
+            <img class="ui left floated medium image" src="assets/images/enversed-banner.png">
+        </div>
+
+
+
+        <div id="flowchart-modal" class="ui basic modal">
+            <i class="close icon"></i>
+            <div class="header">Flowchart</div>
+            <div class="content">
+                <img class="ui fluid image" src="assets/images/screenshot-tool/flowchart.png">
+            </div>
+        </div>
+
+
+
+        <div id="previews-modal" class="ui modal">
+            <i class="close icon"></i>
+            <div class="header">Previews</div>
+            <div class="content">
+                <div class="ui grid">
+                    <div class="nine wide column">
+                        <p>All a preview has to do is display a live version of what the screenshot is going to look like.</p>
+                        <p>In order to do this, a “Scene Capture 2D” object is used. This object can output its capture plane to a 2D Texture Renderer.</p>
+                        <p>The capture object already has functionality to hide specific actors. This makes sure that redundant actors aren’t captured (like the object holding the texture renderer. This also makes it in-line with what the actual screenshot is going to look like, without hiding actors from the game and thus also from the player (which is what the actual screenshot command has to do).</p>
+                        <p>While it has functionality to hide specific actors, it cannot capture any HUD elements (unless they’re placed on a “Widget Component”, something that can be placed in the game world). This is not a problem, however, as the high resolution command doesn’t support it too. Thus the preview remains true to the actual screenshot.</p>
+                    </div>
+                    <div class="seven wide column">
+                        <div class="ui unpadded segment">
+                            <img class="ui fluid image" src="https://via.placeholder.com/1920x1080" />
+                            <div class="ui bottom attached label">
+                                <mark>GIVE ME CONTENT - GIVE ME CONTENT - GIVE ME CONTENT - GIVE ME CONTENT - GIVE ME CONTENT - GIVE ME CONTENT</mark>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div id="sources-modal" class="ui modal">
+            <i class="close icon"></i>
+            <div class="header">Sources</div>
+            <div class="content">
+                <div class="ui grid">
+                    <div class="nine wide column">
+                        <p>Sometimes you want to take a screenshot through something other than your own viewport (e.g. a CCTV camera). Keep in mind these sources should also work with the preview functionality.</p>
+                        <p>
+                            A source requires two components:
+                            <ul>
+                                <li>A camera, used to actually take the screenshot with (viewport is required);</li>
+                                <li>A 2D scene capture, used to place a view on a texture renderer for the preview.</li>
+                            </ul>
+                        </p>
+                    </div>
+                    <div class="seven wide column">
+                        <div class="ui unpadded segment">
+                            <img class="ui fluid image" src="https://via.placeholder.com/1920x1080" />
+                            <div class="ui bottom attached label">
+                                <mark>GIVE ME CONTENT - GIVE ME CONTENT - GIVE ME CONTENT - GIVE ME CONTENT - GIVE ME CONTENT - GIVE ME CONTENT</mark>
+                            </div>
+                        </div>
+                    </div>
+                    <p>When creating a screenshot, it uses the player controller’s viewport. Thus we will have to change its viewport to the source’s camera for a frame or two before switching back to the original. To prevent potential motion sickness from the quick switching between viewports, an effect could be applied (like a white flash) to hide the actual viewport switching. This effect would be ignored by the screenshot tool.</p>
+                    <p>For the preview it’s fairly simple, if there’s a source provided, use its capture component, otherwise spawn a temporary one that follows the player’s camera. Just need to make sure with both versions that you properly hide the actors and set the texture renderer.</p>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div id="performance-modal" class="ui modal">
+            <i class="close icon"></i>
+            <div class="header">Performance</div>
+            <div class="content">
+                <p>Having multiple capturing components (player camera and screenshot preview) obviously isn’t a very cheap operation to perform. Thus the implementation needs to make sure not to make any more draw calls than necessary.</p>
+                <p>Here we’re mostly going to talk about the performance of the preview functionality, as there’s not much to say about the general screenshot portion (just don’t make 10k screenshots every frame).</p>
+                <p>The screenshot tool somewhat enforces performance, as it will only allow for a single preview to run at a time. Multiple previews will require multiple tools (which should already indicate you might be doing something wrong).</p>
+                <p>Whenever disabling the preview, it makes sure to disable the capture component and destroy any temporary capture components.</p>
+                <p>Whenever enabling or disabling the preview, it is always being cleaned up, making sure to reset the hidden components and dereference the texture renderer. With that there are no more references to the capture component and it will stop rendering.</p>
+            </div>
+        </div>
+
+
+
+        <script type="text/javascript">
+            $('#flowchart').click(function ()
+            {
+                $('#flowchart-modal').modal('show');
+            }).dimmer({
+                on: 'hover'
+            });
+
+            $('#previews').click(function ()
+            {
+                $('#previews-modal').modal('show');
+            });
+
+            $('#sources').click(function ()
+            {
+                $('#sources-modal').modal('show');
+            });
+
+            $('#performance').click(function ()
+            {
+                $('#performance-modal').modal('show');
+            });
+        </script>
+    </body>
+</html>
