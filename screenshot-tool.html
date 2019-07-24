@@ -68,7 +68,10 @@
         <div class="ui container basic segment content">
             <div class="ui vertical center aligned segment">
                 <h1 class="ui title header">SCREENSHOT TOOL</h1>
-                <img class="ui fluid image" src="https://via.placeholder.com/1920x1080"/>
+                <video class="ui fluid image" autoplay loop muted>
+                    <source src="https://drive.google.com/uc?export=download&id=1ysGnji54K1NJztgdzzqXuvhIIi8BPRgk" type="video/mp4">
+                    Your browser does not support the mp4 video tag.
+                </video>
 
                 <div class="intro">
                     There are scenarios where a user needs to capture the current visual state of the application. The screenshot tool is supposed to provide this service with certain ease-of-use features.
@@ -201,10 +204,21 @@
                     </div>
                     <div class="seven wide column">
                         <div class="ui unpadded segment">
-                            <img class="ui fluid image" src="https://via.placeholder.com/1920x1080" />
-                            <div class="ui bottom attached label">
-                                <mark>GIVE ME CONTENT - GIVE ME CONTENT - GIVE ME CONTENT - GIVE ME CONTENT - GIVE ME CONTENT - GIVE ME CONTENT</mark>
+                            <div id="preview-media">
+                                <video class="ui fluid image" autoplay loop muted>
+                                    <source src="https://drive.google.com/uc?export=download&id=1sCW61LB-ZVDvUDo4mBwCyNpoTGHtq_2H" type="video/mp4">
+                                    Your browser does not support the mp4 video tag.
+                                </video>
+                                <div class="ui dimmer">
+                                    <div class="content">
+                                        <h1 class="ui inverted icon header">
+                                            <i class="search plus icon"></i>
+                                            Zoom in
+                                        </h1>
+                                    </div>
+                                </div>
                             </div>
+                            <div class="ui bottom attached label">Plane showing the player's viewport. It ignores the pawn, itself and a cube but shows everything else.</div>
                         </div>
                     </div>
                 </div>
@@ -230,10 +244,22 @@
                     </div>
                     <div class="seven wide column">
                         <div class="ui unpadded segment">
-                            <img class="ui fluid image" src="https://via.placeholder.com/1920x1080" />
-                            <div class="ui bottom attached label">
-                                <mark>GIVE ME CONTENT - GIVE ME CONTENT - GIVE ME CONTENT - GIVE ME CONTENT - GIVE ME CONTENT - GIVE ME CONTENT</mark>
+                            <div id="source-media">
+                                <video class="ui fluid image" autoplay loop muted>
+                                    <source src="https://drive.google.com/uc?export=download&id=1ysGnji54K1NJztgdzzqXuvhIIi8BPRgk" type="video/mp4">
+                                    Your browser does not support the mp4 video tag.
+                                </video>
+                                
+                                <div class="ui dimmer">
+                                        <div class="content">
+                                        <h1 class="ui inverted icon header">
+                                            <i class="search plus icon"></i>
+                                            Zoom in
+                                        </h1>
+                                    </div>
+                                </div>
                             </div>
+                            <div class="ui bottom attached label">Dummy camera recorder with it's own source. It can look around the corner when the player can't.</div>
                         </div>
                     </div>
                     <p>When creating a screenshot, it uses the player controller’s viewport. Thus we will have to change its viewport to the source’s camera for a frame or two before switching back to the original. To prevent potential motion sickness from the quick switching between viewports, an effect could be applied (like a white flash) to hide the actual viewport switching. This effect would be ignored by the screenshot tool.</p>
@@ -253,6 +279,38 @@
                 <p>The screenshot tool somewhat enforces performance, as it will only allow for a single preview to run at a time. Multiple previews will require multiple tools (which should already indicate you might be doing something wrong).</p>
                 <p>Whenever disabling the preview, it makes sure to disable the capture component and destroy any temporary capture components.</p>
                 <p>Whenever enabling or disabling the preview, it is always being cleaned up, making sure to reset the hidden components and dereference the texture renderer. With that there are no more references to the capture component and it will stop rendering.</p>
+            </div>
+        </div>
+
+
+
+        <div id="preview-media-modal" class="ui basic modal">
+            <i class="close icon"></i>
+            <div class="header"></div>
+            <div class="content">
+                <div class="ui basic unpadded segment">
+                    <video class="ui fluid image" autoplay loop muted>
+                        <source src="https://drive.google.com/uc?export=download&id=1sCW61LB-ZVDvUDo4mBwCyNpoTGHtq_2H" type="video/mp4">
+                        Your browser does not support the mp4 video tag.
+                    </video>
+                    <div class="ui bottom attached label">Plane showing the player's viewport. It ignores the pawn, itself and a cube but shows everything else.</div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div id="source-media-modal" class="ui basic modal">
+            <i class="close icon"></i>
+            <div class="header"></div>
+            <div class="content">
+                <div class="ui basic unpadded segment">
+                    <video class="ui fluid image" autoplay loop muted>
+                        <source src="https://drive.google.com/uc?export=download&id=1ysGnji54K1NJztgdzzqXuvhIIi8BPRgk" type="video/mp4">
+                        Your browser does not support the mp4 video tag.
+                    </video>
+                    <div class="ui bottom attached label">Dummy camera recorder with it's own source. It can look around the corner when the player can't.</div>
+                </div>
             </div>
         </div>
 
@@ -279,6 +337,20 @@
             $('#performance').click(function ()
             {
                 $('#performance-modal').modal('show');
+            });
+
+            $('#preview-media').click(function ()
+            {
+                $('#preview-media-modal').modal('show');
+            }).dimmer({
+                on: 'hover'
+            });
+
+            $('#source-media').click(function ()
+            {
+                $('#source-media-modal').modal('show');
+            }).dimmer({
+                on: 'hover'
             });
         </script>
     </body>
