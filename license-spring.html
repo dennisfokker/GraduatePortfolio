@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <!-- Standard Meta -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+        <!-- Site Properties -->
+        <title>DFokker Portfolio - License Spring</title>
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+
+        <link rel="stylesheet" type="text/css" href="css/home.css">
+        <link rel="stylesheet" type="text/css" href="css/main-product.css">
+
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+    </head>
+
+    <body>
+        <a href="index.html">
+            <div class="banner ui inverted vertical center aligned segment">
+                <div class="ui text container">
+                    <h1 class="ui inverted header">Graduate Portfolio</h1>
+                </div>
+            </div>
+        </a>
+
+
+        <div class="ui inverted three item important attached menu">
+            <div class="ui centered aligned container">
+
+                <a class="item" href="index.html">
+                    Home
+                </a>
+
+                <div class="ui simple dropdown active item">
+                    Products <i class="dropdown icon"></i>
+                    <div class="menu">
+
+                        <a class="item" href="hand-collision.html">Hand collision</a>
+
+                        <a class="item" href="arduino-communication.html">Arduino communication</a>
+
+                        <a class="item" href="screenshot-tool.html">Screenshot tool</a>
+
+                        <div class="active item">License Spring</div>
+
+                        <div class="item">
+                            Product 2 <i class="dropdown icon"></i>
+                            <div class="menu">
+                                <a class="item">Sub Product 2.1</a>
+
+                                <a class="item">Sub Product 2.2</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <a class="item">
+                    About internship
+                </a>
+
+            </div>
+        </div>
+
+        <div class="ui container basic segment content">
+            <div class="ui vertical center aligned segment">
+                <h1 class="ui title header">LICENSE SPRING</h1>
+                <img class="ui fluid image" src="assets/images/license-spring/cover.png"/>
+
+                <div class="intro">
+                    Not all systems are viable to be made in-house. Licensing is one of them. <a href="https://licensespring.com/" target="_blank">License Spring</a> is the chosen framework to handle the licensing at Enversed Studios. The only thing we have to do is to implement it into Unreal Engine 4 projects.
+                </div>
+            </div>
+
+            <div class="ui vertical stripe segment">
+                <div class="ui basic center aligned segment">
+                    <h1 class="ui title header">CONCEPT</h1>
+                </div>
+
+                <div class="ui grid">
+                    <div class="nine wide column">
+                        <p>The SDK itself comes as a C++ dll (provided by License Spring). In order to integrate this into our projects, we’ll need a plugin. Since (almost) all development is done in blueprints we also have to expose the functionality of the SDK.</p>
+                        <p>Once we can get some example functionality running (initialize the framework and get information of a test license from the server), we can start looking into what exactly the API has to offer to construct a façade that makes usage as simple as possible (automate whatever we logically can).</p>
+                    </div>
+
+                    <div class="seven wide column">
+                        <h4 class="ui title header">REQUIREMENTS</h4>
+                        <div class="ui bulleted list">
+                            <div class="item">Ability to hook up into the License Spring SDK;</div>
+                            <div class="item">Settings that contain descriptive information about the project that is relevant to the license;</div>
+                            <div class="item">Ability to update and receive information about the currently used license.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ui vertical stripe segment">
+                <div class="ui basic center aligned segment">
+                    <h1 class="ui title header">DEVELOPMENT</h1>
+                </div>
+
+                <div class="ui grid">
+                    <div class="nine wide column">
+                        <p>Development consists out of a few stages. We start off with getting their sample code to work in a UE4 <b>plugin</b>. After having validated their SDK we can start categorizing their API to construct our <b>façade</b>. In reality though, the first step (getting their dll going in a plugin) had some <b>issues</b> which had to be resolved first.</p>
+
+                        <div class="ui fluid card">
+                            <div class="content">
+                                <div class="header">Plugin</div>
+                                <div class="description">
+                                    Getting a link going between the SDK (dll) and Unreal Engine 4. With this we can start calling their functions from within the game.
+                                </div>
+                            </div>
+                            <div id="plugin" class="ui bottom attached blue button">
+                                <i class="comment alternate outline icon"></i>
+                                Read more
+                            </div>
+                        </div>
+
+                        <div class="ui fluid card">
+                            <div class="content">
+                                <div class="header">Façade</div>
+                                <div class="description">
+                                    Development is mostly performed in blueprints. Thus we need to expose the SDK’s functions in a way that makes sense for us to use them.
+                                </div>
+                            </div>
+                            <div id="facade" class="ui bottom attached blue button">
+                                <i class="comment alternate outline icon"></i>
+                                Read more
+                            </div>
+                        </div>
+
+                        <div class="ui fluid card">
+                            <div class="content">
+                                <div class="header">Issues</div>
+                                <div class="description">
+                                    Sadly the development didn’t go entirely without problems.
+                                </div>
+                            </div>
+                            <div id="issues" class="ui bottom attached blue button">
+                                <i class="comment alternate outline icon"></i>
+                                Read more
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="seven wide column">
+                        <h4 class="ui title header">FLOWCHART</h4>
+                        <div id="flowchart">
+                            <img class="ui fluid image zoomable" src="assets/images/license-spring/flowchart.png">
+                            <div class="ui dimmer">
+                                <div class="content">
+                                    <h1 class="ui inverted icon header">
+                                        <i class="search plus icon"></i>
+                                        Zoom in
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="ui inverted vertical footer segment">
+            <img class="ui left floated medium image" src="assets/images/enversed-banner.png">
+        </div>
+
+
+
+        <div id="flowchart-modal" class="ui basic modal">
+            <i class="close icon"></i>
+            <div class="header">Flowchart</div>
+            <div class="content">
+                <img class="ui fluid image" src="assets/images/license-spring/flowchart.png">
+            </div>
+        </div>
+
+
+
+        <div id="plugin-modal" class="ui modal">
+            <i class="close icon"></i>
+            <div class="header">Plugin</div>
+            <div class="content">
+                <p>Making a plugin in Unreal Engine 4 isn’t a hard thing. There are plenty of <a href="https://wiki.unrealengine.com/An_Introduction_to_UE4_Plugins" target="_blank">tutorials</a> and <a href="https://github.com/SRombauts/UE4GitPlugin" target="_blank">examples</a> to look at. Implementing a third-party library is a little more tricky. Tutorials and forum answers are either faulty, outdated or incomplete (official documentation is pretty much non-existent).</p>
+                <p>Most of the fun happens in the “*.Build.cs” file, where we tell Unreal’s build tool about the existence of the library. In here we also have to make sure that the library is properly copied over to the project’s binary folder. This step is (as far as I could fine) always either forgotten or implemented incorrectly, resulting in the plugin only working in the editor, but the developer having to manually copy the library into the proper folder when making a build of their game.</p>
+                <p>Once everything is set up it’s only a matter of loading in the dll and keeping a handle so you can unload it whenever you won’t need it anymore (like when the plugin is being shut down).</p>
+            </div>
+        </div>
+
+
+
+        <div id="facade-modal" class="ui modal">
+            <i class="close icon"></i>
+            <div class="header">Façade</div>
+            <div class="content">
+                <p>As mentioned, the library can only be accessed in C++, in the plugin. We want to expose this to the rest of the project, and in our case it also has to be exposed to blueprints.</p>
+                <p>Licensing is mostly an initialization thing; when you start the game, check if you’re actually allowed to do so. A simple initialization of the framework and checking your license is all you need. From there on you can request information about your license like the type or its validity period. It’s also possible to, instead of checking a pre-existing license to retrieve a trial license and run the game on that.</p>
+                <p>The plugin already automatically checks your license periodically. When anything about it changes, the game is notified and can act accordingly.</p>
+            </div>
+        </div>
+
+
+
+        <div id="issues-modal" class="ui modal">
+            <i class="close icon"></i>
+            <div class="header">Issues</div>
+            <div class="content">
+                <p>When first working with their library, it was a recent overhaul of their C++ version (something we had been waiting for). Upon attempting to implement the dll we had several issues with memory access violations inside the dll itself.</p>
+                <p>Unable to find any relatable information on the internet I was left to try different methods of loading in the dll or (by playing around with pointers) to initialize their SDK.</p>
+                <p>In the end I wrote a report about my findings and we sent that information back to License Spring to request for their aid. Later they came back with an updated version of the SDK that played along nicely with Unreal Engine 4.</p>
+            </div>
+        </div>
+
+
+
+        <script type="text/javascript">
+            $('#flowchart').click(function ()
+            {
+                $('#flowchart-modal').modal('show');
+            }).dimmer({
+                on: 'hover'
+            });
+
+            $('#plugin').click(function ()
+            {
+                $('#plugin-modal').modal('show');
+            });
+
+            $('#facade').click(function ()
+            {
+                $('#facade-modal').modal('show');
+            });
+
+            $('#issues').click(function ()
+            {
+                $('#issues-modal').modal('show');
+            });
+        </script>
+    </body>
+</html>
