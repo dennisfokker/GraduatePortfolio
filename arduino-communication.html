@@ -75,7 +75,7 @@
                 </div>
                 
                 <div class="intro">
-                        <p>Certain games from a collection (the <a href="http://prototehas.ee/en/home/" target="_blank">PROTO Invention Factory</a>) use input from physical machines. These machines have their hardware input run through an Arduino and ends up in the game.</p>
+                        <p>Certain games from a collection (the <a href="http://prototehas.ee/en/home/" target="_blank">PROTO Invention Factory</a>) use input from physical machines. These machines have their hardware's data run through an Arduino and from there over to the PC that runs the game.</p>
                         <p>This communication can also go backwards, where the game communicates information with the Arduino.</p>
                 </div>
             </div>
@@ -95,7 +95,7 @@
                     <div class="eight wide column">
                         <h4 class="ui title header">Actions for Enversed</h4>
                         <p>When we received the testing hardware, the first thing we had to do is validate it: update calibration data and assure the input is formatted into the correct message. If this is not the case this has to be updated by us (Arduino C++ code).</p>
-                        <p>Once the hardware is set up, we can dive into the game. First we have to connect to the COM port the Arduino uses, from that point we can deserialize the JSON and inform the rest of the game.</p>
+                        <p>Once the hardware is set up, we can dive into the game. First we have to connect to the Arduino, after which we can receive the JSON messages and inform the rest of the game.</p>
                     </div>
                 </div>
             </div>
@@ -107,7 +107,8 @@
 
                 <div class="ui grid">
                     <div class="nine wide column">
-                        <p>Once the set up has been finished at Enversed’s side, the implementation can start. There are two phases to this: <b>Connecting</b> and the <b>Sidenotes</b> resulting from the connection implementation.</p>
+                        <p>Once the set up has been finished at Enversed’s side, the implementation can start. There are three subjects to this: <b>Connecting</b>, <b>Protocol</b> and the <b>Sidenotes</b> resulting from the connection implementation.</p>
+                        <p>The source of the Arduino communication plugin can be found <a href="https://www.dropbox.com/sh/fgzse0m8ez08pj3/AAD2N1entVHaAHtijuiPHt0fa?dl=0" target="_blank"></a>>here</a>.</p>
 
                         <div class="ui fluid card">
                             <div class="content">
@@ -117,6 +118,19 @@
                                 </div>
                             </div>
                             <div id="connecting" class="ui bottom attached blue button">
+                                <i class="comment alternate outline icon"></i>
+                                Read more
+                            </div>
+                        </div>
+
+                        <div class="ui fluid card">
+                            <div class="content">
+                                <div class="header">Protocol</div>
+                                <div class="description">
+                                    Hardware can fail, messages can get corrupted. A protocol has been created that should ensure the correct message will be received in the end.
+                                </div>
+                            </div>
+                            <div id="protocol" class="ui bottom attached blue button">
                                 <i class="comment alternate outline icon"></i>
                                 Read more
                             </div>
@@ -198,10 +212,41 @@
             <i class="close icon"></i>
             <div class="header">Connecting</div>
             <div class="content">
-                    <p>The base of communication is done through the free open source UE4 plugin <a href="https://github.com/RVillani/UE4Duino" target="_blank">UE4Duino</a>. With this, we added a custom C++ component that simplifies the communication.</p>
-                    <p>The component only requires a single setup function and separate functions to start/stop reading the COM port (takes care of actions like flushing the buffer). Aside from that you can bind to an event which will return received messages, already neatly formatted into a dictionary.</p>
-                    <p>The most complex system here is the event dispatcher. The component needs to make sure the message has properly started and ended, so that there will be no issues during deserialization.</p>
-                    <p>An important part of reading the COM port is that it’s happening on a separate thread: there’s more than one message sent per tick. This means that data comes in constantly and would easily lock up the game thread. Running the reading code on a new thread would fix this, as it can peacefully process all messages whenever received. Luckily all that has to be done with this data is put it in their respective variables, so it can be processed by the rest of the game. Since UE4 makes sure that all variables are thread-safe there’s no risk of memory access violations when used <u data-tooltip="See the sidenotes about what exactly is meant by “properly”." data-inverted="">properly*</u>.</p>
+                <p>The base of communication is done through the free open source UE4 plugin <a href="https://github.com/RVillani/UE4Duino" target="_blank">UE4Duino</a>. With this, we added a custom C++ component that simplifies the communication.</p>
+                <p>The component only requires a single setup function and separate functions to start/stop reading the COM port (takes care of actions like flushing the buffer). Aside from that you can bind to an event which will return received messages, already neatly formatted into a dictionary.</p>
+                <p>The most complex system here is the event dispatcher. The component needs to make sure the message has properly started and ended, so that there will be no issues during deserialization.</p>
+                <p>An important part of reading the COM port is that it’s happening on a separate thread: there’s more than one message sent per tick. This means that data comes in constantly and would easily lock up the game thread. Running the reading code on a new thread would fix this, as it can peacefully process all messages whenever received. Luckily all that has to be done with this data is put it in their respective variables, so it can be processed by the rest of the game. Since UE4 makes sure that all variables are thread-safe there’s no risk of memory access violations when used <u data-tooltip="See the sidenotes about what exactly is meant by “properly”." data-inverted="">properly*</u>.</p>
+            </div>
+        </div>
+
+
+
+        <div id="protocol-modal" class="ui modal">
+            <i class="close icon"></i>
+            <div class="header">Protocol</div>
+            <div class="content">
+                <div class="ui grid">
+                    <div class="ten wide column">
+                        <p>Arduino communication goes over a COM port, typically USB. A USB port means hardware, which can cause data corruption or loss (not to mention the wiring in the Arduino itself potentially containing further points of failure).</p>
+                        <p>In order to assure all message are received correctly, PROTO has set up a protocol that has to be followed when sending and receiving messages. The protocol handles several situations, such as complete loss of messages or a corruption of the data somewhere in the transmission. The diagram on the right shows their protocol.</p>
+                        <p>Plainly sending information over a COM port is something that’s already contained in the plugin’s base, so only the logic of the protocol is something that we need to worry about.</p>
+                    </div>
+                    <div class="six wide column">
+                        <div id="protocol-diagram">
+                            <img class="ui fluid image zoomable" src="assets/images/arduino-communication/protocol_diagram.png">
+                            <div class="ui dimmer">
+                                <div class="content">
+                                    <h1 class="ui inverted icon header">
+                                        <i class="search plus icon"></i>
+                                        Zoom in
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p>The receiving side is easiest: when we’re not busy trying to send something, just echo back whatever you receive. After a short silence (250ms) you will know you received the correct message without any corruption and it can be send over to the rest of the system.</p>
+                <p>Sending is a bit more complex: it contains retries (every 100ms) if no echo was received (message lost) and a check on the echo to see if the message got corrupted somewhere along the line or not. Finally, just like receiving, it contains a delay (250ms) to catch any noise or buffered messages, at which point it might decide to either resend the message or restart the delay, which will indicate a successful send on completion.</p>
             </div>
         </div>
 
@@ -211,12 +256,22 @@
             <i class="close icon"></i>
             <div class="header">Sidenotes</div>
             <div class="content">
-                <p><i>It’s important to first read about how the connection is established and processed, otherwise these sidenotes will make no sense.</i></p>
+                <p><i>It’s important to first read the previous subjects, otherwise these sidenotes will make no sense.</i></p>
                 <p>As mentioned, message reading in done on an extra thread. When the messages are processed properly there won’t be any issues. A good rule for this is to only change <b>data</b> and not <b>physical attributes</b>. Data essentially just means a normal variable. Physical attributes refer to information that’s relevant to the game world, like an actor’s location or dynamically generating a material.</p>
                 <p>Failing to follow this rule will almost certainly crash your game, as these operations are not supported in a multi-threaded context.</p>
                 <p>When a crash does happen, it might not be quite as straightforward to find out what exactly you’re doing wrong. If an initial scan doesn’t show the culprit, process of elimination is likely your best bet.</p>
                 <p>Once you have an easily reproducible setup made, start disconnecting code until it starts working again. If you already have an idea where it might be, start by disconnecting that. No idea? Just disconnect the entire message handling code. Still crashed? Then it’s either something in the plugin or some other system that’s failing.</p>
                 <p>Using this function it’s all a matter of slowly closing in on the faulty code, at which point the relevant code can be moved away from the threaded event and to a point which actually runs on the game thread (like tick).</p>
+            </div>
+        </div>
+
+
+
+        <div id="protocol-diagram-modal" class="ui basic modal">
+            <i class="close icon"></i>
+            <div class="header">Protocol diagram</div>
+            <div class="content">
+                <img class="ui fluid image" src="assets/images/arduino-communication/protocol_diagram.png">
             </div>
         </div>
 
@@ -237,9 +292,21 @@
                 on: 'hover'
             });
 
+            $('#protocol-diagram').click(function ()
+            {
+                $('#protocol-diagram-modal').modal('show');
+            }).dimmer({
+                on: 'hover'
+            });
+
             $('#connecting').click(function ()
             {
                 $('#connecting-modal').modal('show');
+            });
+
+            $('#protocol').click(function ()
+            {
+                $('#protocol-modal').modal('show');
             });
 
             $('#sidenotes').click(function ()
