@@ -179,6 +179,53 @@
                     </div>
                 </div>
             </div>
+
+            <div class="ui vertical stripe segment">
+                <div class="ui basic center aligned segment">
+                    <h1 class="ui title header">PROCESS</h1>
+                </div>
+
+                <div class="ui divided grid">
+                    <div class="eight wide column">
+                        <h4 class="ui title header">CONNECTING - PARSING</h4>
+                        <p>As mentioned, the base for the arduino communication was already mostly there.</p>
+                        <p>Initially the Arduino boards would just send over a JSON string on it’s baud rate (developed by PROTO). This however quickly became an issue with detecting said message in the game. How do we know when the message has started and where it’ll end?</p>
+                        <p>It wasn’t an option to essentially interpret the JSON with every byte we received and work based off that. Instead we pitched the idea of the STX (Start Text) and ETX (End Text) characters. These would encapsulate the message so we would know when a message starts and when it ends.</p>
+                        <p>This also helped as protection against data loss/corruption. Imagine defining the end of a message by a matching amount of opening and closing curly brackets. Missing one closing bracket would just mean they’d never match up again some other fortunate corruption would happen later on. Now we only need to see a single character after which we can discard the message if it’s not valid JSON (due to corruption).</p>
+
+                        <h4 class="ui title header">CONNECTING - CALIBRATION</h4>
+                        <p>We animate the Arduino’s input onto a mesh in the game (1:1 to the physical setup). The Arduino’s hardware needs tweaking, however (how many degrees of turning the steer should return the value 1). This calibration data is sent over from the Arduino on setup, which is fired when connecting to the Arduino from the game. This follows the same conventions of a start/end character and a JSON message.</p>
+                        <p>This was implemented so that the “in-game” calibration can be done from the Arduino. That way we don’t have to send over a new build if their physical setup is different compared to the test setups we received.</p>
+                    </div>
+                    
+                    <div class="eight wide column">
+                        <h4 class="ui title header">PROTOCOL - SENDING DATA</h4>
+                        <p>The initial idea behind adhering to the protocol for sending was to use latent functions on the blueprint side. The issue with latent functions was that we couldn’t find any source to implement it with multiple out execution pins and return values. Aside from this limitation we also noticed that the structure of a latent function wouldn’t play nicely with our multithreaded structure.</p>
+                        <p>In the end we opted to do it in a more manual method: work on the “Arduino threat” and start up timers whenever required. This system will be able to call delegates and BP events when required. On the blueprint side we can then keep track of the current Arduino “state” (e.g. performing handshake) and react on the success or fail of sending a message accordingly.</p>
+                        
+                        <h4 class="ui title header">PROTOCOL - TIMER EVENTS</h4>
+                        <p>As mentioned in “PROTOCOL - SENDING DATA”, we’re using timers to implement the waits the protocol specifies. Timers have several different methods of calling a delegate on completion. By default, you would use a parameter-less function. This, however, wouldn’t do. We needed to send over data (the received message on start of the timer).</p>
+                        <p>There were a few options proposed:</p>
+                        <ul>
+                            <li>Store the message in a field that we read upon reaching the parameter-less function.</li>
+                            <li>Use a function that does accept parameters, binding the timer to this function.</li>
+                            <li>Use a lambda function that the timer is bound to.</li>
+                        </ul>
+                        <p>In the end the lambda function was the chosen implementation, as it centralizes the (small bits of) implementation of a theoretical “OnTimerXCompleted”-function; it’s right next to it.</p>
+                        <div id="lambda-timer">
+                            <img class="ui fluid image zoomable" src="assets/images/arduino-communication/lambda_timer.png">
+                            <div class="ui dimmer">
+                                <div class="content">
+                                    <h1 class="ui inverted icon header">
+                                        <i class="search plus icon"></i>
+                                        Zoom in
+                                    </h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
 
@@ -203,6 +250,16 @@
             <div class="header">Hardware</div>
             <div class="content">
                 <img class="ui fluid image" src="assets/images/arduino-communication/hardware.jpg">
+            </div>
+        </div>
+
+
+
+        <div id="lambda-timer-modal" class="ui basic modal">
+            <i class="close icon"></i>
+            <div class="header">Lambda Timer Example</div>
+            <div class="content">
+                <img class="ui fluid image" src="assets/images/arduino-communication/lambda_timer.png">
             </div>
         </div>
 
@@ -288,6 +345,13 @@
             $('#hardware').click(function ()
             {
                 $('#hardware-modal').modal('show');
+            }).dimmer({
+                on: 'hover'
+            });
+
+            $('#lambda-timer').click(function ()
+            {
+                $('#lambda-timer-modal').modal('show');
             }).dimmer({
                 on: 'hover'
             });

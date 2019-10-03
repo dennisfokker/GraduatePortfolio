@@ -164,6 +164,16 @@
                     </div>
                 </div>
             </div>
+
+            <div class="ui vertical stripe segment">
+                <div class="ui basic center aligned segment">
+                    <h1 class="ui title header">PROCESS</h1>
+                </div>
+                <h4 class="ui title header">FAÇADE</h4>
+                <p>The very first idea was to simply expose all library functions to the blueprint side and do everything in there. Later on it was noticed that the library was given a bit too much credit (it didn’t do as much as initially expected).</p>
+                <p>Instead of creating all the extra functionality in blueprints (and keeping the original idea of simply exposing everything), the decision was made to keep the basic implementations in the plugin (C++) and only do simple flow control on the blueprint side. An example of this would be to try getting a trial license: blueprint contains a single function to do this, but in the backend performs several actions, like checking if the library is even loaded, removing the old (potentially activated) license and try-catch-es for exceptions from the library.</p>
+                <p>The end result is that the blueprint side is extremely simple. In the game instance, on init, initialize the license. Listen to any changes in the license status and act accordingly, such as displaying an error message that forcefully closes the game if the license is not valid after x seconds. The desired behaviour for an invalid license can change on a per-project basis, hence why it’s prefered to have this implementation in blueprints, instead of C++.</p>
+            </div>
         </div>
 
 
@@ -212,7 +222,7 @@
             <div class="header">Issues</div>
             <div class="content">
                 <p>When first working with their library, it was a recent overhaul of their C++ version (something we had been waiting for). Upon attempting to implement the dll we had several issues with memory access violations inside the dll itself.</p>
-                <p>Unable to find any relatable information on the internet I was left to try different methods of loading in the dll or (by playing around with pointers) to initialize their SDK.</p>
+                <p>Unable to find any relatable information on the internet I was left to try different methods of loading in the dll or to initialize their SDK (by playing around with pointers).</p>
                 <p>In the end I wrote a report about my findings and we sent that information back to License Spring to request for their aid. Later they came back with an updated version of the SDK that played along nicely with Unreal Engine 4.</p>
             </div>
         </div>
