@@ -174,6 +174,31 @@
                     </div>
                 </div>
             </div>
+
+            <div class="ui vertical stripe segment">
+                <div class="ui basic center aligned segment">
+                    <h1 class="ui title header">PROCESS</h1>
+                </div>
+                <p>This task was mostly straight-forward to work on. We need a way to display a preview of the screenshot and the screenshot records the screen, or in other words the viewport or camera. This is where Render Targets come in to place, as they’re specifically made to display the output of a capture component live (there are also variations that work with 3D projections).</p>
+
+                <div class="ui grid">
+                    <div class="eight wide column">
+                        <h4 class="ui title header">RENDER TARGET REFERENCES</h4>
+                        <p>When working on ensuring there weren’t any redundant renderers still drawing, I did run into a small issue. Namely that a render target will continue drawing even when the component it’s attached to has been deactivated; the render target needs to completely lose all references to any renderers.</p>
+                        <p>This was later moved into a proper cleanup function that can be called whenever the preview is disabled or a new one has been started (don’t keep multiple previews running).</p>
+                    </div>
+
+                    <div class="eight wide column">
+                        <h4 class="ui title header">GENERIC SOURCE</h4>
+                        <p>When defining a specific source you want to take the screenshot from, it essentially requires two components:</p>
+                        <ul>
+                            <li>A capture component which can output to the render target texture during a preview;</li>
+                            <li>A camera, which is the actual viewport that will be used for taking the screenshot.</li>
+                        </ul>
+                        <p>Instead of looking for a component that could satisfy both of those needs or reworking the system to function around some other component, I decided to instead create a specific actor that contains those two components (which can potentially contain other functionality if needed in a project, like an in-game representation).</p>
+                    </div>
+                </div>
+            </div>
         </div>
 
 
