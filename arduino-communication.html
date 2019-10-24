@@ -75,7 +75,7 @@
                 </div>
                 
                 <div class="intro">
-                        <p>Certain games from a collection (the <a href="http://prototehas.ee/en/home/" target="_blank">PROTO Invention Factory</a>) use input from physical machines. These machines have their hardware's data run through an Arduino and from there over to the PC that runs the game.</p>
+                        <p>Some of the games in the PROTO game-collection use input from physical machines. These machines have their hardware's data run through an Arduino and from there over to the PC that runs the game.</p>
                         <p>This communication can also go backwards, where the game communicates information with the Arduino.</p>
                 </div>
             </div>
@@ -90,12 +90,34 @@
                         <h4 class="ui title header">Provided by PROTO</h4>
                         <p>An outside source (company) provides hardware (e.g. a bike), which includes an Arduino and code to process the hardware’s input (e.g. a tilt sensor).</p>
                         <p>The Arduino will format any input to a -1 to 1 scale (like how a joystick would function) based on its calibration settings. All hardware input is gathered into a single message and sent over a COM port to the connected computer. It has been agreed that all messages are sent over in a JSON format.</p>
-                    </div>
 
-                    <div class="eight wide column">
+                        <div class="ui section divider"></div>
+
                         <h4 class="ui title header">Actions for Enversed</h4>
                         <p>When we received the testing hardware, the first thing we had to do is validate it: update calibration data and assure the input is formatted into the correct message. If this is not the case this has to be updated by us (Arduino C++ code).</p>
                         <p>Once the hardware is set up, we can dive into the game. First we have to connect to the Arduino, after which we can receive the JSON messages and inform the rest of the game.</p>
+                    </div>
+
+                    <div class="eight wide column">
+                        <h4 class="ui title header">Document required tasks</h4>
+                        <p>The first tasks were already clear: make sure the games work with the supplied hardware (Arduinos). While this was all we had to worry about for a long time, eventually additional requirements came: a management subsystem. This subsystem comes in the form of a Raspberry Pi and accepts player scores from the game, which can be claimed by the player.</p>
+                        <p>While we already knew this subsystem would have to be implemented, it took some time before PROTO came with their specifications. Once we received their specifications I wrote down all the tasks that would have to be performed. From these tasks the PO can create an estimated amount of time to implement, and by extend a quotation.</p>
+                        <p>The first and final version can be found below. Note that the final version mainly has a lot of components removed, these were decisions made by the client.</p>
+
+                        <a class="ui big blue label" href="" target="_blank">
+                            <i class="dropbox icon"></i>First version task specifications
+                        </a>
+                        <a class="ui big blue label" href="" target="_blank">
+                            <i class="dropbox icon"></i>Final version task specifications
+                        </a>
+                    </div>
+                </div>
+
+                <div class="ui grid">
+                    <div class="ten wide column">
+                    </div>
+
+                    <div class="ten wide column">
                     </div>
                 </div>
             </div>
@@ -200,8 +222,8 @@
                     
                     <div class="eight wide column">
                         <h4 class="ui title header">PROTOCOL - SENDING DATA</h4>
-                        <p>The initial idea behind adhering to the protocol for sending was to use latent functions on the blueprint side. The issue with latent functions was that we couldn’t find any source to implement it with multiple out execution pins and return values. Aside from this limitation we also noticed that the structure of a latent function wouldn’t play nicely with our multithreaded structure.</p>
-                        <p>In the end we opted to do it in a more manual method: work on the “Arduino threat” and start up timers whenever required. This system will be able to call delegates and BP events when required. On the blueprint side we can then keep track of the current Arduino “state” (e.g. performing handshake) and react on the success or fail of sending a message accordingly.</p>
+                        <p>The initial idea behind adhering to the protocol for sending was to use latent functions on the blueprint side. The issue with latent functions was that we couldn’t find any sources to implement it with multiple out execution pins and return values. Aside from this limitation we also noticed that the structure of a latent function wouldn’t play nicely with our multithreaded structure.</p>
+                        <p>In the end we opted to do it in a more manual method: work on the “Arduino threat” and start up timers whenever required. This system will be able to call delegates and BP events when required. On the blueprint side we can then keep track of the current Arduino “state” (e.g. performing handshake) and react on the success or failure of sending a message accordingly.</p>
                         
                         <h4 class="ui title header">PROTOCOL - TIMER EVENTS</h4>
                         <p>As mentioned in “PROTOCOL - SENDING DATA”, we’re using timers to implement the waits the protocol specifies. Timers have several different methods of calling a delegate on completion. By default, you would use a parameter-less function. This, however, wouldn’t do. We needed to send over data (the received message on start of the timer).</p>
@@ -285,7 +307,7 @@
                 <div class="ui grid">
                     <div class="ten wide column">
                         <p>Arduino communication goes over a COM port, typically USB. A USB port means hardware, which can cause data corruption or loss (not to mention the wiring in the Arduino itself potentially containing further points of failure).</p>
-                        <p>In order to assure all message are received correctly, PROTO has set up a protocol that has to be followed when sending and receiving messages. The protocol handles several situations, such as complete loss of messages or a corruption of the data somewhere in the transmission. The diagram on the right shows their protocol.</p>
+                        <p>In order to assure all messages are received correctly, PROTO has set up a protocol that has to be followed when sending and receiving messages. The protocol handles several situations, such as complete loss of messages or a corruption of the data somewhere in the transmission. The diagram on the right shows their protocol.</p>
                         <p>Plainly sending information over a COM port is something that’s already contained in the plugin’s base, so only the logic of the protocol is something that we need to worry about.</p>
                     </div>
                     <div class="six wide column">
@@ -302,7 +324,7 @@
                         </div>
                     </div>
                 </div>
-                <p>The receiving side is easiest: when we’re not busy trying to send something, just echo back whatever you receive. After a short silence (250ms) you will know you received the correct message without any corruption and it can be send over to the rest of the system.</p>
+                <p>The receiving side is easiest: when we’re not busy trying to send something, just echo back whatever you receive. After a short silence (250ms) you will know you received the correct message without any corruption and it can be sent over to the rest of the system.</p>
                 <p>Sending is a bit more complex: it contains retries (every 100ms) if no echo was received (message lost) and a check on the echo to see if the message got corrupted somewhere along the line or not. Finally, just like receiving, it contains a delay (250ms) to catch any noise or buffered messages, at which point it might decide to either resend the message or restart the delay, which will indicate a successful send on completion.</p>
             </div>
         </div>

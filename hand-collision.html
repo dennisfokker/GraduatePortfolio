@@ -76,7 +76,7 @@
                 </video>
 
                 <div class="intro">
-                    A system used to make the visual representation of your hand physical, whilst minimizing the chance of breaking the immersion of the game.<br>
+                    A system used to make a visual representation of your physical hand, whilst minimizing the chance of breaking the immersion of the game.<br>
                     It provides extra visualisation for your real life hand position, which only becomes visible once your hand starts making illegal movements, like going into a wall.<br>
                 </div>
             </div>
@@ -181,7 +181,7 @@
                 <h4 class="ui title header">DESIGN-PHASE</h4>
                 <p>The design document describes several “subjects” that had to be implemented or addressed whilst making an implementation. These are based off the predefined requirements. The solution to these subjects use the sources at the bottom of the document.</p>
                 <p>As described, this product only defines hand-movement, as there’s already a system in place to prevent your body from going through a wall.</p>
-                <p>Some sources talked about how to discourage illegal movements (through solid objects). While the suggestions regarding how the map should look like isn’t part of this system, I did come across a paper that described that a simple vibration of the controller already does a good job of preventing people from moving through walls. I have decided against this, however, as it might become confusing when implementing the vibration for other type of game-specific feedback (such as when you’d receive a message on your in-game PDA).</p>
+                <p>Some sources talked about how to discourage illegal movements (through solid objects). While the suggestions regarding how the map should look like isn’t part of this system, I did come across a paper that described a simple vibration of the controller already does a good job of preventing people from moving through walls. I have decided against this, however, as it might become confusing when implementing the vibration for other type of game-specific feedback (such as when you’d receive a message on your in-game PDA).</p>
                 <p>A later source suggested to do a combination of 2 solutions to get the best of both worlds. Have a representation of your real-life hand (ghost hand) that only shows when a 1:1 representation in-game isn’t possible, and a representation of your in-game character body, which follows the in-game physics.</p>
                 <p>In that source they talk about having the character body maintain physics and constantly attempt to reach the ghost hand’s location. I decided against this as physics is a heavy operation, and also unpredictable; enough force can sometimes still make your body clip through a wall. So instead of constantly letting the character attempt to reach the real location, it sort of “freezes” and continues moving again once the real hand location is valid again.</p>
 
@@ -227,7 +227,7 @@
                     </video>
                     <div class="ui bottom attached label">
                         Visualisation of traces through debug lines/spheres (trace visible for 0.1 second, causing the "snake").</br>
-                        Magena/Cyan = character to controller ----- Red/green = camera controller
+                        Magenta/Cyan = character to controller ----- Red/green = camera controller
                     </div>
                 </div>
             </div>
@@ -237,7 +237,7 @@
 
         <div id="configurability-modal" class="ui modal">
             <i class="close icon"></i>
-            <div class="header">Sidenotes</div>
+            <div class="header">Configurability</div>
             <div class="content">
                 <p>The system contains 3 settings: whether it’s active, hand size and visibility threshold.</p>
 
@@ -287,7 +287,7 @@
                 </div>
 
                 <h4 class="ui header">Hand size</h4>
-                <p>Depending on the visualisation your hand size can differ, either on project basis or based on the current state of your character. The traces use this size.</p>
+                <p>Depending on the visualisation your hand size can differ, either on a project basis or based on the current state of your character. The traces use this size.</p>
                 <p>This setting is visualised with a sphere simple collision shape without any collision enabled. This visualisation is only visible in the viewport (engine-time) and make it easier to see scale, compared to a float (radius in cm).</p>
 
                 <h4 class="ui header">Visibility threshold</h4>
@@ -325,7 +325,7 @@
             <i class="close icon"></i>
             <div class="header">Clarity</div>
             <div class="content">
-                <p>An important thing about clarity, whilst maintaining immersion, is to be noninvasive. Examples would be: don’t make essential things disappear, try to be predictable and, of curse, don’t scare the player.</p>
+                <p>An important thing about clarity, whilst maintaining immersion, is to be noninvasive. Examples would be: don’t make essential things disappear, try to be predictable and, of course, don’t scare the player.</p>
                 <p>Currently, when the character’s hand “collides”, all it does is stop moving. Nothing too weird. And given the system is properly set up (see configurability), should also be somewhat expected behaviour.</p>
                 <div class="ui grid">
                     <div class="nine wide column">

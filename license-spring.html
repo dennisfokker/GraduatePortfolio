@@ -73,7 +73,7 @@
                 <img class="ui fluid image" src="assets/images/license-spring/cover.png"/>
 
                 <div class="intro">
-                    Not all systems are viable to be made in-house. Licensing is one of them. <a href="https://licensespring.com/" target="_blank">License Spring</a> is the chosen framework to handle the licensing at Enversed Studios. The only thing we have to do is to implement it into Unreal Engine 4 projects.
+                    Not all systems are viable to be made in-house. Licensing is currently one of them. <a href="https://licensespring.com/" target="_blank">License Spring</a> is the chosen framework to handle the licensing at Enversed Studios. The only thing we have to do is to implement it into Unreal Engine 4.
                 </div>
             </div>
 
@@ -172,7 +172,7 @@
                 <h4 class="ui title header">FAÇADE</h4>
                 <p>The very first idea was to simply expose all library functions to the blueprint side and do everything in there. Later on it was noticed that the library was given a bit too much credit (it didn’t do as much as initially expected).</p>
                 <p>Instead of creating all the extra functionality in blueprints (and keeping the original idea of simply exposing everything), the decision was made to keep the basic implementations in the plugin (C++) and only do simple flow control on the blueprint side. An example of this would be to try getting a trial license: blueprint contains a single function to do this, but in the backend performs several actions, like checking if the library is even loaded, removing the old (potentially activated) license and try-catch-es for exceptions from the library.</p>
-                <p>The end result is that the blueprint side is extremely simple. In the game instance, on init, initialize the license. Listen to any changes in the license status and act accordingly, such as displaying an error message that forcefully closes the game if the license is not valid after x seconds. The desired behaviour for an invalid license can change on a per-project basis, hence why it’s prefered to have this implementation in blueprints, instead of C++.</p>
+                <p>The end result is that the blueprint side is extremely simple. In the game instance, on init, initialize the license. Listen to any changes in the license status and act accordingly, such as displaying an error message that forcefully closes the game if the license is not valid after x seconds. The desired behaviour for an invalid license can change on a per-project basis, hence why it’s preferred to have this implementation in blueprints, instead of C++.</p>
             </div>
         </div>
 
@@ -198,7 +198,7 @@
             <div class="header">Plugin</div>
             <div class="content">
                 <p>Making a plugin in Unreal Engine 4 isn’t a hard thing. There are plenty of <a href="https://wiki.unrealengine.com/An_Introduction_to_UE4_Plugins" target="_blank">tutorials</a> and <a href="https://github.com/SRombauts/UE4GitPlugin" target="_blank">examples</a> to look at. Implementing a third-party library is a little more tricky. Tutorials and forum answers are either faulty, outdated or incomplete (official documentation is pretty much non-existent).</p>
-                <p>Most of the fun happens in the “*.Build.cs” file, where we tell Unreal’s build tool about the existence of the library. In here we also have to make sure that the library is properly copied over to the project’s binary folder. This step is (as far as I could fine) always either forgotten or implemented incorrectly, resulting in the plugin only working in the editor, but the developer having to manually copy the library into the proper folder when making a build of their game.</p>
+                <p>Most of the fun happens in the “*.Build.cs” file, where we tell Unreal’s build tool about the existence of the library. Here we also have to make sure that the library is properly copied over to the project’s binary folder. This step is (as far as I could fine) always either forgotten or implemented incorrectly, resulting in the plugin only working in the editor, but the developer having to manually copy the library into the proper folder when making a build of their game.</p>
                 <p>Once everything is set up it’s only a matter of loading in the dll and keeping a handle so you can unload it whenever you won’t need it anymore (like when the plugin is being shut down).</p>
             </div>
         </div>
