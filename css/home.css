@@ -136,3 +136,12 @@ a.ui.card:hover {
 .footer {
     height: 110px;
 }
+
+.ui.simple.dropdown:hover>.menu>.item.active>.menu {
+    overflow: visible;
+    width: auto;
+    height: auto;
+    top: 0!important;
+    left: 100%!important;
+    opacity: 1;
+}
