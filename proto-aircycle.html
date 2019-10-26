@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <!-- Standard Meta -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+        <!-- Site Properties -->
+        <title>DFokker Portfolio - Aircycle</title>
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+
+        <link rel="stylesheet" type="text/css" href="css/home.css">
+        <link rel="stylesheet" type="text/css" href="css/main-product.css">
+
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+    </head>
+
+    <body>
+        <a href="index.html">
+            <div class="banner ui inverted vertical center aligned segment">
+                <div class="ui text container">
+                    <h1 class="ui inverted header">Graduate Portfolio</h1>
+                </div>
+            </div>
+        </a>
+
+
+        <div class="ui inverted three item important attached menu">
+            <div class="ui centered aligned container">
+
+                <a class="item" href="index.html">
+                    Home
+                </a>
+
+                <div class="ui simple dropdown active item">
+                    Products <i class="dropdown icon"></i>
+                    <div class="menu">
+                        <a class="item" href="enversed-framework.html">Enversed framework</a>
+                
+                        <a class="item" href="proto-backend.html">PROTO game collection</a>
+                
+                        <div class="active item" href="proto-game-collection.html">
+                            PROTO game collection <i class="dropdown icon"></i>
+                            <div class="menu">
+                                <div class="active item" href="proto-aircycle.html">Aircycle</div>
+                
+                                <a class="item" href="proto-balloon-escape.html">Balloon escape</a>
+                
+                                <a class="item" href="proto-car-inventor-race.html">Car inventor race</a>
+                
+                                <a class="item" href="proto-intro-experience.html">Intro experience</a>
+                
+                                <a class="item" href="proto-light-factory.html">Light factory</a>
+                
+                                <a class="item" href="proto-steam-racers.html">Steam racers</a>
+                
+                                <a class="item" href="proto-submarine.html">Submarine</a>
+                
+                                <a class="item" href="proto-train-heist.html">Train heist</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <a class="item">
+                    About internship
+                </a>
+
+            </div>
+        </div>
+
+        <div class="ui container basic segment content">
+            <div class="ui vertical center aligned segment">
+                <h1 class="ui title header">AIRCYCLE</h1>
+                <video class="ui fluid image" autoplay loop muted>
+                    <source src="https://drive.google.com/uc?export=download&id=1UCL6frX_17KDrQV4zOnKpxckcqIfmeL-" type="video/mp4">
+                    Your browser does not support the mp4 video tag.
+                </video>
+
+                <div class="intro">
+                    Aircycle is a game about cycling through a floating city with your airbike, delivering mail to the residents.<br>
+                    Follow the route through the city and try to reach all of the mail targets, whilst preventing to hit the environment.<br>
+                </div>
+            </div>
+
+            <div class="ui vertical stripe segment">
+                <div class="ui basic center aligned segment">
+                    <h1 class="ui title header">CONCEPT</h1>
+                </div>
+
+                <p>Aircycle is a game where the player uses a physical bike to control their in-game character. The character moves over a set spline through the map. By steering and pedaling, the player will offset themself horizontally or vertically (respectively) from the original spline. The player’s offset is limited by a specific amount (to prevent them from going outside the desired play area).</p>
+                <p>There are “mail targets” scattered across the spline/path. The player plays as a mailman and has to get close enough to these mail targets so that it can deliver mail to the attached mailbox.</p>
+            </div>
+
+            <div class="ui vertical stripe segment">
+                <div class="ui basic center aligned segment">
+                    <h1 class="ui title header">DEVELOPMENT</h1>
+                </div>
+
+                <div class="ui grid">
+                    <p>The base systems of this game were already in place when my internship started at Enversed. I mostly worked on fixing bugs here and there and the occasional tweaking of gameplay elements. These tweaks were performed based on feedback coming from the client or internally.</p>
+
+                    <h4 class="ui title header">movement</h4>
+                    <p>One of which (suggested by me) was a gradual increase in speed on starting the game (instead of instantly shooting to max speed). When you have worked with VR before, it should be easy to understand that the jump in speed can cause motion sickness.</p>
+                    <p>Another small suggestion I made and implemented, was to shrink the maximum extend of the player at the end of the game, to gradually guide them towards a central endpoint on the path.</p>
+
+                    <h4 class="ui title header">score</h4>
+                    <p>(Almost) all PROTO games provide the player with some score value at the end of the game. To make all game scores more connected, they all follow a certain score format, something we called “score standardisation”: a “decent”-rated player should get roughly the same score in every game.</p>
+                    <p>The document that outlines all the score standardisation values/calculations can be found <a href="https://www.dropbox.com/s/cmhcqowj3kmb5dg/Score%20standardization.pdf?dl=0" target="_blank">here <i class="fitted dropbox icon"></i></a>.</p>
+                    <p>The points design for Airbike is already mostly described in the document. The only real variables in the game are the amount of mail delivered and the amount of times the player crashed. Since we mostly want to reward the player for good behaviour and not so much punish for bad behaviour, delivering mail is worth twice as much as the penalty for crashing.</p>
+                    <p>The different grades are based off playing through the game with different styles (like very abrupt steering to roughly simulate loss of control) and looking for potential tough portions.</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="ui inverted vertical footer segment">
+            <img class="ui left floated medium image" src="assets/images/enversed-banner.png">
+        </div>
+
+    </body>
+</html>

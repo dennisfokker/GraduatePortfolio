@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <!-- Standard Meta -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+        <!-- Site Properties -->
+        <title>DFokker Portfolio - Balloon escape</title>
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+
+        <link rel="stylesheet" type="text/css" href="css/home.css">
+        <link rel="stylesheet" type="text/css" href="css/main-product.css">
+
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+    </head>
+
+    <body>
+        <a href="index.html">
+            <div class="banner ui inverted vertical center aligned segment">
+                <div class="ui text container">
+                    <h1 class="ui inverted header">Graduate Portfolio</h1>
+                </div>
+            </div>
+        </a>
+
+
+        <div class="ui inverted three item important attached menu">
+            <div class="ui centered aligned container">
+
+                <a class="item" href="index.html">
+                    Home
+                </a>
+
+                <div class="ui simple dropdown active item">
+                    Products <i class="dropdown icon"></i>
+                    <div class="menu">
+                        <a class="item" href="enversed-framework.html">Enversed framework</a>
+                
+                        <a class="item" href="proto-backend.html">PROTO game collection</a>
+                
+                        <div class="active item" href="proto-game-collection.html">
+                            PROTO game collection <i class="dropdown icon"></i>
+                            <div class="menu">
+                                <a class="item" href="proto-aircycle.html">Aircycle</a>
+                
+                                <div class="active item" href="proto-balloon-escape.html">Balloon escape</div>
+                
+                                <a class="item" href="proto-car-inventor-race.html">Car inventor race</a>
+                
+                                <a class="item" href="proto-intro-experience.html">Intro experience</a>
+                
+                                <a class="item" href="proto-light-factory.html">Light factory</a>
+                
+                                <a class="item" href="proto-steam-racers.html">Steam racers</a>
+                
+                                <a class="item" href="proto-submarine.html">Submarine</a>
+                
+                                <a class="item" href="proto-train-heist.html">Train heist</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <a class="item">
+                    About internship
+                </a>
+
+            </div>
+        </div>
+
+        <div class="ui container basic segment content">
+            <div class="ui vertical center aligned segment">
+                <h1 class="ui title header">BALLOON ESCAPE</h1>
+                <video class="ui fluid image" autoplay loop muted>
+                    <source src="https://drive.google.com/uc?export=download&id=1HjKgw3tVqjUvP8fXSyIR9KGkAa-WVg2j" type="video/mp4">
+                    Your browser does not support the mp4 video tag.
+                </video>
+
+                <div class="intro">
+                    Balloon escape is a game about stealing your invention to prevent it being used for certain purposes.<br>
+                    Fly out of the “holding bay” and glide through an environmental obstacle course, staying below the lamps of their watch towers, to reach the escape boat.<br>
+                </div>
+            </div>
+
+            <div class="ui vertical stripe segment">
+                <div class="ui basic center aligned segment">
+                    <h1 class="ui title header">CONCEPT</h1>
+                </div>
+
+                <p>In Balloon escape the player enters a physical balloon basket. Leaning left and right in this basket and pressing a button to heat up the air in the game’s balloon (there’s no actual fire in the physical setup), will control the balloon in the game.</p>
+                <p>Getting out of the starting area the balloon will slowly glide down back to earth. Using the “fire” button the player can gain some lift before slowly gliding down again. Naturally leaning will provide input towards the left and right.</p>
+                <p>Moving through three different connected environments the player has to stay below the watchtowers and prevent hitting the trees, rocks and buildings around him.</p>
+            </div>
+
+            <div class="ui vertical stripe segment">
+                <div class="ui basic center aligned segment">
+                    <h1 class="ui title header">DEVELOPMENT</h1>
+                </div>
+
+                <div class="ui grid">
+                    <p>Just like in Aircycle, the player follows a set spline from which it can offset itself. The implementation of this spline-movement and respawning to set position upon crashing was thus already something made.</p>
+
+                    <h4 class="ui title header">regions</h4>
+                    <div class="ui grid">
+                        <div class="nine wide column">
+                            <p>Later on an extension was made to the spline movement: regions.</p>
+                            <p>As mentioned, Balloon escape have 3 regions. The idea behind these regions is to change the speed of the player. Flying just above a forest will provide a moderate speed, whilst there will be very little wind to move you forward in a narrow mountain groove.</p>
+                            <p>Aside from the logical part behind it, it can also be used for gameplay elements, slow regions that require lots of dodging or fast regions that require timely preparation.</p>
+                            <p>A simple dictionary variable for setup and in-editor debug visuals should make it easy to visualise tweaks in the level and to notice potential gameplay-related problems.</p>
+                            <p>The full feature list of regions:</p>
+                            <ul>
+                                <li>Setup regions through a dictionary: key is the distance along the spline and a struct containing the new speed, max offset, etc. is the value.</li>
+                                <li>Allows for adjustable smoothing or instant transition (i.e. gradually speed up or instantly increase the space the player can move around in).</li>
+                                <li>Debug visuals that show the starting points of each region with their attached values and a visual for the maximum offset, all behind a single button press.</li>
+                            </ul>
+                        </div>
+
+                        <div class="seven wide column">
+                            <h5 class="ui title header">range debug draw</h5>
+                            <div id="region-debug">
+                                <img class="ui fluid image zoomable" src="assets/images/proto-balloon-escape/region-range-debug-draw.png">
+                                <div class="ui dimmer">
+                                    <div class="content">
+                                        <h1 class="ui inverted icon header">
+                                            <i class="search plus icon"></i>
+                                            Zoom in
+                                        </h1>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4 class="ui title header">score</h4>
+                    <p>(Almost) all PROTO games provide the player with some score value at the end of the game. To make all game scores more connected, they all follow a certain score format, something we called “score standardisation”: a “decent”-rated player should get roughly the same score in every game.</p>
+                    <p>The document that outlines all the score standardisation values/calculations can be found <a href="https://www.dropbox.com/s/cmhcqowj3kmb5dg/Score%20standardization.pdf?dl=0" target="_blank">here <i class="fitted dropbox icon"></i></a>.</p>
+                    <p>Since the speed a player goes through the experience can’t be influenced by the player, the only real variable in this game is the amount of crashes, as the extra time you might take due to respawning is directly attached to the amount of times you crashed.</p>
+                    <p>Thus this game was a bit difficult to design, but in the end the decision was made that the only way to score this game was through penalties: The player starts with max score and gets a reduction with every crash they make.</p>
+                    <p>The game was played through with a few playstyles (such as minimal sideways movement, fly fairly statically) and based on that the amount of crashed for the different grades were decided, with 2-3 extra crashes as a buffer. Keep in mind that the minimum score for every game is always 1000.</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="ui inverted vertical footer segment">
+            <img class="ui left floated medium image" src="assets/images/enversed-banner.png">
+        </div>
+
+
+
+        <div id="region-debug-modal" class="ui basic modal">
+            <i class="close icon"></i>
+            <div class="header">Range debug draw</div>
+            <div class="content">
+                <img class="ui fluid image" src="assets/images/proto-balloon-escape/region-range-debug-draw.png">
+            </div>
+        </div>
+
+
+
+        <script type="text/javascript">
+            $('#region-debug').click(function ()
+            {
+                $('#region-debug-modal').modal('show');
+            }).dimmer({
+                on: 'hover'
+            });
+        </script>
+
+    </body>
+</html>

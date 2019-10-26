@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <!-- Standard Meta -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+        <!-- Site Properties -->
+        <title>DFokker Portfolio - Intro experience</title>
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+
+        <link rel="stylesheet" type="text/css" href="css/home.css">
+        <link rel="stylesheet" type="text/css" href="css/main-product.css">
+
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+    </head>
+
+    <body>
+        <a href="index.html">
+            <div class="banner ui inverted vertical center aligned segment">
+                <div class="ui text container">
+                    <h1 class="ui inverted header">Graduate Portfolio</h1>
+                </div>
+            </div>
+        </a>
+
+
+        <div class="ui inverted three item important attached menu">
+            <div class="ui centered aligned container">
+
+                <a class="item" href="index.html">
+                    Home
+                </a>
+
+                <div class="ui simple dropdown active item">
+                    Products <i class="dropdown icon"></i>
+                    <div class="menu">
+                        <a class="item" href="enversed-framework.html">Enversed framework</a>
+                
+                        <a class="item" href="proto-backend.html">PROTO game collection</a>
+                
+                        <div class="active item" href="proto-game-collection.html">
+                            PROTO game collection <i class="dropdown icon"></i>
+                            <div class="menu">
+                                <a class="item" href="proto-aircycle.html">Aircycle</a>
+                
+                                <a class="item" href="proto-balloon-escape.html">Balloon escape</a>
+                
+                                <a class="item" href="proto-car-inventor-race.html">Car inventor race</a>
+                
+                                <div class="active item" href="proto-intro-experience.html">Intro experience</div>
+                
+                                <a class="item" href="proto-light-factory.html">Light factory</a>
+                
+                                <a class="item" href="proto-steam-racers.html">Steam racers</a>
+                
+                                <a class="item" href="proto-submarine.html">Submarine</a>
+                
+                                <a class="item" href="proto-train-heist.html">Train heist</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <a class="item">
+                    About internship
+                </a>
+
+            </div>
+        </div>
+
+        <div class="ui container basic segment content">
+            <div class="ui vertical center aligned segment">
+                <h1 class="ui title header">INTRO EXPERIENCE</h1>
+                <video class="ui fluid image" autoplay loop muted>
+                    <source src="https://drive.google.com/uc?export=download&id=12P5o_f4igbysRhauk90DM0VplrR8t-Yc" type="video/mp4">
+                    Your browser does not support the mp4 video tag.
+                </video>
+
+                <div class="intro">
+                    Intro experience is a game about you as an inventor, drawing out all the inventions: the ones you use in the other games.<br>
+                    Trace the guiding line and see the created doodle come to life, into something you’ll get to operate later!<br>
+                </div>
+            </div>
+
+            <div class="ui vertical stripe segment">
+                <div class="ui basic center aligned segment">
+                    <h1 class="ui title header">CONCEPT</h1>
+                </div>
+
+                <p>The introduction experience of PROTO: get you first experience with VR and make sure it’s a simple, easy going game. Hold your pencil and start tracing the predetermined drawings after which they come to life to show the inventions that will be used in the later games.</p>
+            </div>
+
+            <div class="ui vertical stripe segment">
+                <div class="ui basic center aligned segment">
+                    <h1 class="ui title header">DEVELOPMENT</h1>
+                </div>
+                <p>The drawing system went through several iterations. Whilst the base system stayed the same, certain changes were made as the experience either wasn’t very fun yet, or not polished enough.</p>
+
+                <h4 class="ui title header">Drawing V1</h4>
+                <p>Drawings are created by shaping one or more splines (order maintained through tags). Upon spawning, it’ll go over all actors, creating point meshes (visuals) at all spline points and a spline mesh for every spline section between two points (since a spline mesh is only from point A to B and doesn’t support intermediate nodes).</p>
+                <p>When a player touches a spline point (done through a distance check between the spline point and the tip of the pencil), the point is activated (texture animation) and the connected spline mesh is made visible (again, through a texture animation).</p>
+                <p>Whenever a spline is finished, an animation can be fired and the next spline can be activated, until you finish all splines and thus the drawing is finished, triggering a different animation.</p>
+
+                <h4 class="ui title header">Drawing V2</h4>
+                <p>The previous version created a feeling of “touch the dots”: you just touch a point, look where the next point is and touch that one.</p>
+                <p>In order to create a more drawing feeling a “hint line” was added. This essentially was another state on the meshes that had a sort of transparent/greyed-out visual. These states were a simple float parameter in the material where some states had transitions (e.g. interpolate from 2.0 to 3.0).</p>
+                <p>With this players roughly know ahead of time where they’ll need to move towards and can thus make a more continuous movement.</p>
+
+                <h4 class="ui title header">Drawing V3</h4>
+                <p>The points were still very distracting, and no feedback is provided whilst drawing. In fact, it was still a “touch the dots” experience, just with more visuals upon touching a point.</p>
+                <p>This version actually allowed the player to draw. The points were completely removed, although they were still used in the back-end system. We use the “touched” points to keep track at what section of the player is (and if he has started/ended that specific spline). Furthermore the spline visuals now update live with where your pencil is on the spline: a bright blue line showing what you’ve drawn so far.</p>
+                <p>Now you were finally drawing the inventions, a line showing up where your pencil passes over the hint line.</p>
+                <p>Later this was extended with a few extra visuals, but these didn’t change anything noteworthy on a functional level.</p>
+            </div>
+        </div>
+
+
+        <div class="ui inverted vertical footer segment">
+            <img class="ui left floated medium image" src="assets/images/enversed-banner.png">
+        </div>
+
+    </body>
+</html>
