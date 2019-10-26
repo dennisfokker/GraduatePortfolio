@@ -77,8 +77,8 @@
                         <div class="ui grid">
                             <div class="eight wide column">
                                 <h4 class="ui title header">arduino communication</h4>
-                                <p>Some of the games in the PROTO game collection use input from physical machines. These machines have their hardware’s data run through an Arduino and from there over to the PC that runs the game.</p>
-                                <p>This communication can also go backwards, where the game communicates information with the Arduino.</p>
+                                <p>Some of the games in the PROTO game collection use input from physical machines. These machines work with a microcontroller (e.g. Arduino) which can communicate with the game through a plugin.</p>
+                                <p>Communication between the game and the hardware was defined with a protocol and the full list of tasks to implement the client’s initial design required were listen (and later adjusted based on client input).</p>
                             </div>
             
                             <div class="eight wide column">
@@ -99,6 +99,11 @@
                                         </div>
                                     </div>
                                 </a>
+
+                                <div class="ui red tag label">Analysis</div>
+                                <div class="ui orange tag label">Advice</div>
+                                <div class="ui green tag label">Design</div>
+                                <div class="ui blue tag label">Realisation</div>
                             </div>
                         </div>
                     </div>
@@ -107,8 +112,8 @@
                         <div class="ui grid">
                             <div class="eight wide column">
                                 <h4 class="ui title header">license spring</h4>
-                                <p>Not all systems are viable to be made in-house. Licensing is currently one of them. <a href="https://licensespring.com/" target="_blank">License Spring</a> is the chosen framework to handle the licensing at Enversed Studios. The only thing we have to do is to implement it into Unreal Engine 4.</p>
-                                <p>While licensing is going to be used in future projects too, it’s first implementation was for PROTO.</p>
+                                <p>Not all systems are viable to be made in-house. Licensing is currently one of them. <a href="https://licensespring.com/" target="_blank">License Spring</a> is the chosen framework to handle the licensing at Enversed Studios.</p>
+                                <p>In order the implement License Spring’s SDK into UE4, a plugin was created that mostly acts as a Façade. It simplifies communication by hiding certain parts of the implementation that should be static behind the plugin’s code (such as checking if there’s a valid license active), whilst allowing any actions a project might require to be custom made.</p>
                             </div>
             
                             <div class="eight wide column">
@@ -129,6 +134,9 @@
                                         </div>
                                     </div>
                                 </a>
+
+                                <div class="ui green tag label">Design</div>
+                                <div class="ui blue tag label">Realisation</div>
                             </div>
                         </div>
                     </div>

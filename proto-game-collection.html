@@ -41,7 +41,7 @@
                     <div class="menu">
                         <a class="item" href="enversed-framework.html">Enversed framework</a>
                         
-                        <a class="item" href="proto-backend.html">PROTO game collection</a>
+                        <a class="item" href="proto-backend.html">PROTO back-end</a>
                         
                         <div class="active item" href="proto-game-collection.html">
                             PROTO game collection <i class="dropdown icon"></i>
@@ -84,6 +84,7 @@
                 <div class="intro">
                     <p>The <a href="http://prototehas.ee/en/home/" target="_blank">PROTO Invention Factory</a> is a client who requested several games from Enversed, most of which I have worked on. All of these games exist in the same steampunk universe. Keep in mind that all games are intended to be of a somewhat-fixed length: they can’t take too long to play.</p>
                     <p>In these projects the “CONCEPT” heading specifies the game’s predetermined design, “DEVELOPMENT” lists sub-products I have worked on that are worth mentioning (generally fairly small). The design, development and process will be discussed within the “DEVELOPMENT” heading.</p>
+                    <p>Keep in mind that for (almost) all of these games, I designed their score system, which is mostly the reason for the design tag. The realisation tag is due to the other created systems.</p>
                     <p>You can navigate to the product’s page by clicking the respective card (image).</p>
                 </div>
             </div>
@@ -95,8 +96,9 @@
                             <div class="ui grid">
                                 <div class="eight wide column">
                                     <h4 class="ui title header">AIRCYCLE</h4>
-                                    <p>Aircycle is a game about cycling through a floating city with your airbike, delivering mail to the residents.</p>
-                                    <p>Follow the route through the city and try to reach all of the mail targets, whilst preventing to hit the environment.</p>
+                                    <p>Aircycle is mostly here for completion. I haven’t made anything noteworthy in this project that I haven't implemented in another project. This is mostly the case since I wasn’t there are the start of the project.</p>
+                                    <div class="ui green tag label">Design</div>
+                                    <div class="ui blue tag label">Realisation</div>
                                 </div>
                 
                                 <div class="eight wide column">
@@ -128,8 +130,9 @@
                             <div class="ui grid">
                                 <div class="eight wide column">
                                     <h4 class="ui title header">BALLOON ESCAPE</h4>
-                                    <p>Balloon escape is a game about stealing your invention to prevent it being used for certain purposes.</p>
-                                    <p>Fly out of the “holding bay” and glide through an environmental obstacle course, staying below the lamps of their watch towers, to reach the escape boat.</p>
+                                    <p>During balloon escape I create an extension upon the existing spline movement: regions. The regions were made to be easily editable, even by a non-programmer (given they understand the concepts of the underlying system).</p>
+                                    <div class="ui green tag label">Design</div>
+                                    <div class="ui blue tag label">Realisation</div>
                                 </div>
                 
                                 <div class="eight wide column">
@@ -163,8 +166,9 @@
                             <div class="ui grid">
                                 <div class="eight wide column">
                                     <h4 class="ui title header">CAR INVENTOR RACE</h4>
-                                    <p>Car inventor race is a game about racing your new car invention to the exposition, which you are late for.</p>
-                                    <p>Rush through the city in your car whilst swerving around traffic, avoiding pedestrians and crashing through pesky wooden blockades.</p>
+                                    <p>The dynamic obstacles system was created during this project, and later also used in aircycle. The system is created in a way that only requires setup in the level, and no programming is needed to implement it.</p>
+                                    <div class="ui green tag label">Design</div>
+                                    <div class="ui blue tag label">Realisation</div>
                                 </div>
                 
                                 <div class="eight wide column">
@@ -196,8 +200,9 @@
                             <div class="ui grid">
                                 <div class="eight wide column">
                                     <h4 class="ui title header">INTRO EXPERIENCE</h4>
-                                    <p>Intro experience is a game about you as an inventor, drawing out all the inventions: the ones you use in the other games.</p>
-                                    <p>Trace the guiding line and see the created doodle come to life, into something you’ll get to operate later!</p>
+                                    <p>Intro experience mostly contains a system to provide proper gameplay results and visuals. The creation of drawings for these games can be done by artists by creating and tagging splines. The backend system should then take care of the rest once spawned in the level.</p>
+                                    <div class="ui green tag label">Design</div>
+                                    <div class="ui blue tag label">Realisation</div>
                                 </div>
                 
                                 <div class="eight wide column">
@@ -231,8 +236,9 @@
                             <div class="ui grid">
                                 <div class="eight wide column">
                                     <h4 class="ui title header">LIGHT FACTORY</h4>
-                                    <p>Light factory is a game about working in a brand new, state of the art, factory. Work effectively with your co-worker to make sure you meet the high demands.</p>
-                                    <p>Assemble a high-tech lamp piece by piece, but make sure you put on the right variation! Sadly you don’t have all the parts on your bench, so coordinate with your co-worker who has to perform what tasks.</p>
+                                    <p>Whilst a lot of light factory is based around modules already in Enversed’s framework, the main part I worked on here was properly updating the visuals of the lamp during construction, which involved switching materials or their variables according to the scenario.</p>
+                                    <div class="ui green tag label">Design</div>
+                                    <div class="ui blue tag label">Realisation</div>
                                 </div>
                 
                                 <div class="eight wide column">
@@ -264,8 +270,9 @@
                             <div class="ui grid">
                                 <div class="eight wide column">
                                     <h4 class="ui title header">STEAM RACERS</h4>
-                                    <p>Steam racers is a game about racing in the brand new racing machines, finally making it possible to have organised races for prizes and amusement.</p>
-                                    <p>Step into one of the four steam racers, rev up the engine and race through the pipe system and over the slippery ice lake to be the first to finish all three laps.</p>
+                                    <p>Steam racers doesn’t contain extremely notable products, aside from the implementation of the main gameflow that the game revolves around (when does it start and when does it end).</p>
+                                    <div class="ui green tag label">Design</div>
+                                    <div class="ui blue tag label">Realisation</div>
                                 </div>
                 
                                 <div class="eight wide column">
@@ -299,8 +306,10 @@
                             <div class="ui grid">
                                 <div class="eight wide column">
                                     <h4 class="ui title header">SUBMARINE</h4>
-                                    <p>Submarine is a game about taking a dive in the newest of submarines, get right into Atlantis and take home the precious treasure waiting down below.</p>
-                                    <p>Dive deep down to Atlantis with upto 2 other players, fighting off waves of automated defending robots to unlock the domes that hide the treasure inside.</p>
+                                    <p>In the submarine project, I created the system to put the players inside the system, which contained 2 iterations. Furthermore there’s also a bit of mathy stuff regarding UV-space (materials). This creates the analysis tag, albeit the analysis not being extremely structured.</p>
+                                    <div class="ui red tag label">Analysis</div>
+                                    <div class="ui green tag label">Design</div>
+                                    <div class="ui blue tag label">Realisation</div>
                                 </div>
                 
                                 <div class="eight wide column">
@@ -332,8 +341,9 @@
                             <div class="ui grid">
                                 <div class="eight wide column">
                                     <h4 class="ui title header">TRAIN HEIST</h4>
-                                    <p>Train heist is a game about defending a new inventions which is in the process of being stolen by hijackers.</p>
-                                    <p>Team up with your friend and shoot your waves through the bandits, making your way through the train to prevent them from taking away the invention.</p>
+                                    <p>Whilst teleportation movement is already a module in Enversed’s framework, I made an extension upon it to also display the play area as a preview. This mostly went over visual iterations.</p>
+                                    <div class="ui green tag label">Design</div>
+                                    <div class="ui blue tag label">Realisation</div>
                                 </div>
                 
                                 <div class="eight wide column">
