@@ -45,10 +45,16 @@
                     </div>
                 </div>
 
-                <a class="item">
-                    About internship
-                </a>
-
+                <div class="ui simple dropdown item">
+                    About internship <i class="dropdown icon"></i>
+                    <div class="menu">
+                        <a class="item" href="reflection-evaluation.html">Reflection and evaluation</a>
+                
+                        <a class="item" href="enversed-tooling.html">Enversed tooling</a>
+                
+                        <a class="item" href="enversed-workflow.html">Enversed workflow</a>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -67,8 +73,8 @@
                 <div class="ui divided grid">
                     <div class="eight wide column">
                         <h4 class="ui title header">About the assignment</h4>
-                        <p>The internship assignment was rather vague, due to the nature of how Enversed functions (generally only knows about projects a few weeks prior). Due to this, the assignment consists out of the products I made during my internship, whether they’re full games or extensions to their framework.</p>
-                        <p>Keep in mind this was no conventional internship, as it consists out of multiple smaller products, rather than a single larger product.</p>
+                        <p>The internship is focussed around multiple products, whether they’re full games, a plugin or an extension to Enversed’s framework. Each product has its own process, such as a research-, analysis/design- and implementation-phase. In some products a certain phase might be more prominent than in another and not each phase always produced a concrete product like a document.</p>
+                        <p>Not all products were known from the start of the internship. It was known that I would be working on the PROTO games, but obviously not specifically what components. This also meant there were pleasant surprises, such as working on the Arduino communication or License Spring plugin, as the original expectation was to work mostly on the game directly, rather than sub-systems they might use.</p>
                     </div>
 
                     <div class="eight wide column">
@@ -79,7 +85,26 @@
             </div>
 
             <div class="ui vertical stripe segment">
-                <div class="ui vertical center aligned segment">
+                <div class="ui basic center aligned segment">
+                    <h2 class="ui title header">Product categories</h2>
+                </div>
+                <p>The products can be separated into three different categories: Enversed framework, PROTO back-end and PROTO game collection. Below you’ll find a quick description of each category.</p>
+
+                <h3 class="ui title header">Enversed framework</h3>
+                <p>Enversed has a framework which it uses to create its games. The framework contains some boilerplate code and modules that can be included based on the project.</p>
+                <p>The most notable products I made for their framework are the hand collision system, extensions to the screenshot tool and a gesture-based transformation module (unused, but complementary to the other products). These products generally contain a bit more formal analysis and design phase, compared to the other products.</p>
+
+                <h3 class="ui title header">PROTO back-end</h3>
+                <p>The <a href="http://prototehas.ee/en/home/" target="_blank">PROTO Invention Factory</a> is a client who requested several games from Enversed, most of which I have worked on. Some systems were required for multiple games. The products under this category could be seen as part of a “PROTO framework”, like the Enversed framework.</p>
+                <p>The most notable products I made for the PROTO back-end are several different tasks on the Arduino (hardware) communication and the licensing plugin. These products also contain a bit more high-level products, such as an advise document towards the client or communication with third-party developers about faulty code from their side.</p>
+
+                <h3 class="ui title header">PROTO game collection</h3>
+                <p>Obviously, aside from working on their back-end, I also worked on the games that PROTO requested. The process of all these games is mostly the same and listing all of them provides some redundancy.</p>
+                <p>On each specific product, you can find some systems I worked on specific for those (or a few) games. Aside from system-development there was also a bit of game design, most notably the design of getting all of the games to output a score on the same range, even though they might be completely different from each other.</p>
+            </div>
+
+            <div class="ui vertical stripe segment">
+                <div class="ui basic center aligned segment">
                     <h2 class="ui title header">List of products</h2>
                 </div>
 
@@ -111,7 +136,7 @@
                         </tr>
                         <tr>
                             <td><a href="screenshot-tool.html">Screenshot tool</a></td>
-                            <td>-</td>
+                            <td>Described on page</td>
                             <td>-</td>
                             <td>Workflow diagram</td>
                             <td colspan="2">Described on page</td>
@@ -149,7 +174,7 @@
                         </tr>
                         <tr>
                             <td><a href="license-spring.html">License Spring</a></td>
-                            <td>-</td>
+                            <td>Described on page</td>
                             <td>-</td>
                             <td>Workflow diagram</td>
                             <td colspan="2">Described on page</td>
@@ -179,10 +204,11 @@
                     <tbody>
                         <tr>
                             <td><a href="proto-game-collection.html">All PROTO games</a></td>
+                            <td>Described on page</td>
                             <td>-</td>
                             <td>-</td>
-                            <td>Workflow diagram</td>
-                            <td colspan="2">Described on pages</td>
+                            <td><a href="https://www.dropbox.com/s/cmhcqowj3kmb5dg/Score standardization.pdf?dl=0" target="_blank">Score standardization</a></td>
+                            <td>Described on pages</td>
                             <td>-</td>
                             <td>-</td>
                             <td>-</td>
@@ -207,15 +233,37 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td><a href="index.html">To be created</a></td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td>Workflow description</td>
+                            <td><a href="reflection-evaluation.html">Reflection and evaluation</a></td>
                             <td>-</td>
                             <td>-</td>
                             <td>-</td>
-                            <td>Workflow description</td>
-                            <td>(peer) review & evaluation</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>Described on page</td>
+                        </tr>
+                        <tr>
+                            <td><a href="enversed-tooling.html">Enversed tooling</a></td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>Described on page</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>Described on page</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td><a href="enversed-workflow.html">Enversed workflow</a></td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>Described on page</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
                         </tr>
                     </tbody>
                 </table>

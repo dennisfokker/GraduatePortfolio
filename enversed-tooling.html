@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <!-- Standard Meta -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+        
+        <!-- Site Properties -->
+        <title>DFokker Portfolio - Enversed tooling</title>
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+
+        <link rel="stylesheet" type="text/css" href="css/home.css">
+        <link rel="stylesheet" type="text/css" href="css/main-product.css">
+        
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+    </head>
+
+    <body>
+        <div class="banner ui inverted vertical center aligned segment">
+            <div class="ui text container">
+                <h1 class="ui inverted header">Graduate Portfolio</h1>
+            </div>
+        </div>
+
+
+        <div class="ui inverted three item important attached menu">
+            <div class="ui centered aligned container">
+
+                <a class="item" href="index.html">
+                    Home
+                </a>
+
+                <div class="ui simple dropdown item">
+                    Products <i class="dropdown icon"></i>
+                    <div class="menu">
+                        <a class="item" href="enversed-framework.html">Enversed framework</a>
+                        
+                        <a class="item" href="proto-backend.html">PROTO back-end</a>
+
+                        <a class="item" href="proto-game-collection.html">PROTO game collection</a>
+                    </div>
+                </div>
+
+                <div class="ui simple dropdown active item">
+                    About internship <i class="dropdown icon"></i>
+                    <div class="menu">
+                        <a class="item" href="reflection-evaluation.html">Reflection and evaluation</a>
+                
+                        <div class="active item" href="enversed-tooling.html">Enversed tooling</div>
+                
+                        <a class="item" href="enversed-workflow.html">Enversed workflow</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="ui container basic segment">
+            <div class="ui vertical center aligned segment">
+                <h1 class="ui title header">ENVERSED TOOLING</h1>
+            
+                <div class="intro">
+                    <p>Of course Enversed didn’t just make a game and put it out there, certain tooling was used whilst developing on projects. A list and description can be found below.</p>
+                </div>
+            </div>
+            
+            <div class="ui vertical stripe segment">
+                <div class="ui basic center aligned segment">
+                    <h3 class="ui title header">Management</h3>
+                </div>
+
+                <div class="ui items">
+                    <div class="item">
+                        <div class="ui tiny image">
+                            <img src="assets/images/enversed-tooling/jira-logo.png">
+                        </div>
+                        <div class="content">
+                            <div class="description">
+                                <p>Jira was used for managing all user stories, their subtasks and potential bugs. These tasks were tracked using a Kanban board using different swimming lanes and priorities.</p>
+                                <p>Once a user story is accepted and subtasks are made, the subtasks will go past the following swimming lanes: To-Do &#62; Preparation &#60;&#62; Preparation review &#62; Work &#60;&#62; Testing &#60;&#62; Work review &#62; Done.</p>
+                                <p>For further information about how Jira was used, see <a href="enversed-workflow.html">Enversed workflow</a>.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ui vertical stripe segment">
+                <div class="ui basic center aligned segment">
+                    <h3 class="ui title header">Source control</h3>
+                </div>
+            
+                <div class="ui items">
+                    <div class="item">
+                        <div class="ui tiny image">
+                            <img src="assets/images/enversed-tooling/git-logo.png">
+                            <img src="assets/images/enversed-tooling/git-lfs-logo.png">
+                        </div>
+                        <div class="content">
+                            <div class="description">
+                                <p>Git is used to manage source control. The master branch is reserved for (tagged) releases while the develop branch is as the name suggests.</p>
+                                <p>At first feature-branches were used, the develop branch only containing completed subtasks and each subtask creating a new branch on which could be worked on before merging back into develop.</p>
+                                <p>Later on, Git LFS was integrated into the workflow. Blueprints are binary files, which can’t be merged. Previously we simply had to communicate who was working with what file. With Git LFS storage is better handled (it occupies less space on the harddrive), as does it have a feature for locks. Locks can be setup on a file to indicate you are working on it, and prevents and informs other developers about this.</p>
+                                <p>In order to optimally integrate this, a plugin was also used in Unreal Engine, which supports LFS locks with icons on the files and warnings when working with (un)locked files.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ui vertical stripe segment">
+                <div class="ui basic center aligned segment">
+                    <h3 class="ui title header">Communication</h3>
+                </div>
+            
+                <div class="ui items">
+                    <div class="item">
+                        <div class="ui tiny image">
+                            <img src="assets/images/enversed-tooling/slack-logo.png">
+                        </div>
+                        <div class="content">
+                            <div class="description">
+                                <p>Team communication is performed over Slack. A few general channels are there (such as a team or discuss-unreal channel) as well as a channel for each project.</p>
+                                <p>The idea is that (almost) all communication should go over Slack, that way you won’t bother people directly when they might not have any time, or a third person might chime in who has the correct answer to the question.</p>
+                                <p>Only once a conversation has been initiated on Slack can it potentially be changed to an in-person discussion. It’s important, however, to summarise every discussion, as this makes it easier for other people to know what to do when they have similar questions.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ui vertical stripe segment">
+                <div class="ui basic center aligned segment">
+                    <h3 class="ui title header">Documentation</h3>
+                </div>
+            
+                <div class="ui items">
+                    <div class="item">
+                        <div class="ui tiny image">
+                            <img src="assets/images/enversed-tooling/confluence-logo.png">
+                        </div>
+                        <div class="content">
+                            <div class="description">
+                                <p>Documentation is put in Confluence. It’s important to categorise each “page” in the correct project and (potential) sub-category. Each project should always have a readme-esque page to describe how to start working on it, what client feedback there is and other notes.</p>
+                                <p>Whenever a big task is picked up, this should also receive a page on Confluence, as this makes it much easier to reference at a later date.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="ui inverted vertical footer segment">
+            <img class="ui left floated medium image" src="assets/images/enversed-banner.png">
+        </div>
+        
+    </body>
+</html>
