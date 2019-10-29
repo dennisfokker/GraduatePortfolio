@@ -75,3 +75,7 @@ h4.ui.title.header {
 .ui.items {
     margin: 0;
 }
+
+.ui.header a:not(:hover) {
+    color: inherit;
+}
